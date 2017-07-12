@@ -1,0 +1,29 @@
+<div class="row">
+ <div class="col-md-1">
+ </div>
+      <div class="col-md-5">
+        <div style="display: block">
+          <canvas baseChart
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4" style="margin-bottom: 10px">
+        <table class="table table-responsive table-condensed">
+          <tr>
+            <th>Doenças</th>
+            <th>Nº de Casos [Janeiro~Julho]</th>
+          </tr>
+          <tr *ngFor="let d of lineChartData">
+            <th>{{d.label}}</th>
+            <td *ngFor="let label of doughnutChartLabels; let j=index">{{d && d.data[j]}}</td>
+          </tr>
+        </table>
+        <button (click)="randomize()">Gerar</button>
+      </div>
+  <div class="col-md-1">
+  </div>
+</div>

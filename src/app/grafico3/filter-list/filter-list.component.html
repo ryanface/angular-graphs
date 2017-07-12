@@ -1,0 +1,6 @@
+
+Term: <input type="text" #searchText (input)="search(searchText.value)">
+<BR/>
+<li *ngFor="let gif of gifs" id="{{gif.id}}">
+   {{gif.id}}-{{gif.nome}}-{{gif.sexo}}-{{gif.mes}}-{{gif.doenca}}
+</li>
