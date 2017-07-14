@@ -8,6 +8,7 @@ import { FindModule } from "./find/find.module";
 import { WebserviceModule } from './webservice/webservice.module';
 import { Grafico2Module } from './grafico2/grafico2.module';
 import { Grafico3Module } from './grafico3/grafico3.module';
+import { DemoModule } from './demo/demo.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Grafico3Module } from './grafico3/grafico3.module';
     FindModule,
     WebserviceModule,
     Grafico2Module,
-    Grafico3Module
+    Grafico3Module,
+    DemoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

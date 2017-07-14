@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
 export class AppData {
 
     public lineChartData:any[] = [
-      {data: [65, 59, 80, 81, 56, 55, 40], label: 'Chikungunya'},
-      {data: [28, 48, 40, 19, 86, 27, 90], label: 'Dengue'},
-      {data: [18, 48, 77, 9, 100, 27, 40], label: 'Zika'},
-      {data: [18, 48, 77, 9, 100, 27, 40], label: 'Sífilis'}
+      {data: [0,0,0,0,0,0,0,0,0,0,0,0], label: 'Chikungunya'},
+      {data: [0,0,0,0,0,0,0,0,0,0,0,0], label: 'Dengue'},
+      {data: [0,0,0,0,0,0,0,0,0,0,0,0], label: 'Zika'},
+      {data: [0,0,0,0,0,0,0,0,0,0,0,0], label: 'Sífilis'}
     ];
-    public lineChartLabels:Array<any> = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'julho'];
+    public lineChartLabels:Array<any> = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
     public lineChartLabelsBairro:any[] = ['Centro','Alvorada','Araras','Autódromo', 'Bela Vista','Belvedere','Boa Vista']
-    
+
     constructor() {
     }
     public randomize():void {

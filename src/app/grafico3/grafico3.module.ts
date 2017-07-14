@@ -7,6 +7,7 @@ import { Grafico3Component } from "./grafico3.component";
 import { AppService } from "../app.service";
 import { AppData } from "../app.data";
 import { FilterListModule } from './filter-list/filter-list.module';
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { FilterListModule } from './filter-list/filter-list.module';
     Grafico3RoutingModule,
     FormsModule,
     ChartsModule,
-    FilterListModule
+    FilterListModule,
+    DatePickerModule
   ],
   declarations: [ Grafico3Component ],
   exports:[ Grafico3Component ],

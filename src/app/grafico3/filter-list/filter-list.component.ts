@@ -10,7 +10,7 @@ import { AppService } from "../../app.service";
 export class FilterListComponent implements OnInit {
 
   @Input()
-  gifs: any[] = [];
+  json: any[] = [];
 
   constructor(private AppService : AppService) { }
 
@@ -18,6 +18,6 @@ export class FilterListComponent implements OnInit {
   }
 
   public search(term:string):void {
-    this.AppService.json(term,'').subscribe((response: Response) => this.gifs = response.json());
+    this.AppService.json(term,'').subscribe((response: Response) => this.json = response.json());
   }
 }
