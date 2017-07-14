@@ -6,6 +6,8 @@ import { FormsModule } from "@angular/forms";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppData } from "../app.data";
 import { DemoModule } from '../demo/demo.module';
+import { FilterListModule } from './filter-list/filter-list.module';
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import { DemoModule } from '../demo/demo.module';
     Grafico2RoutingModule,
     FormsModule,
     ChartsModule,
-    DemoModule
+    DemoModule,
+    FilterListModule,
+    DatePickerModule,
   ],
   declarations: [ Grafico2Component ],
   exports:[ Grafico2Component ],

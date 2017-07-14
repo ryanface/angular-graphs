@@ -10,18 +10,23 @@
                (chartClick)="chartClicked($event)"></canvas>
    </div>
    <div class="col-md-4" style="margin-bottom: 10px">
-     <table class="table table-responsive table-condensed">
-       <tr>
-         <th>[Janeiro~Julho]</th>
-         <th *ngFor="let label of radarChartLabels">{{label}}</th>
-       </tr>
-       <tr *ngFor="let d of radarChartData">
-         <th>{{d.label}}</th>
-         <td *ngFor="let label of radarChartLabels; let j=index">{{d && d.data[j]}}</td>
-       </tr>
-     </table>
-     <button (click)="randomize()">Gerar</button>
    </div>
    <div class="col-md-1">
    </div>
+</div>
+<div class="row" style="margin-top: 10px">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-7">
+    <div class="row" style="margin-top: 50px">
+      De:<ng2-datepicker [options]="options" [(ngModel)]="dataDe"></ng2-datepicker>
+      Até:<ng2-datepicker [options]="options" [(ngModel)]="dataAte"></ng2-datepicker>      
+      <button (click)="randomizeType()" class='.btn-default' type="button" class="btn btn-default">Atualizar</button>
+    </div>
+    <div class="row" style="margin-top: 50px">
+        <app-filter-list [json]="json"></app-filter-list>
+    </div>
+  </div>
+  <div class="col-md-1">
+  </div>
 </div>
