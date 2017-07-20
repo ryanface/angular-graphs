@@ -20,7 +20,7 @@ export class Grafico2Component implements OnInit {
   constructor( private AppData : AppData, private AppService: AppService) { }
 
   ngOnInit() {
-     this.radarChartLabels = this.AppData.lineChartLabels;
+     this.radarChartLabels = this.AppData.lineChartLabelsBairro;
      this.radarChartData   = this.AppData.lineChartData;
      this.randomizeType();
   }
