@@ -48,5 +48,12 @@ export class DemoComponent implements OnInit {
     public sortByWordLength = (a: any) => {
         return a.city.length;
     }
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 
 }

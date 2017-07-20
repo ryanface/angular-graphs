@@ -50,7 +50,12 @@ export class Grafico3Component implements OnInit {
     this.gifs = [];
     let list = [];
     for(let i in e){
-      let tmp = [parseInt(e[i].jan),parseInt(e[i].fev),parseInt(e[i].mar),parseInt(e[i].abr),parseInt(e[i].mai),parseInt(e[i].jun),parseInt(e[i].jul),parseInt(e[i].ago),parseInt(e[i].set),parseInt(e[i].out),parseInt(e[i].nov),parseInt(e[i].dez)];
+      let tmp = [];
+      for(let j in e[i]){
+         console.log(i, j);
+         if(j != 'doenca' && j != 'casos' && j != 'ano')
+            tmp.push(parseInt(e[i][j]));
+      }
       this.gifs.push({data: tmp, label: e[i].doenca});
       list.push(e[i].doenca);
     }

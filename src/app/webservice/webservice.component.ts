@@ -43,5 +43,12 @@ export class WebserviceComponent implements OnInit {
      // quadro
      this.lineChartData = _lineChartData;
    }
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 
 }

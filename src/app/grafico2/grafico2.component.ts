@@ -15,6 +15,7 @@ export class Grafico2Component implements OnInit {
   options: DatePickerOptions;
   gifs: any[] = [];
   json: any[] = [];
+  label: any[] = [];
   term: string;
 
   constructor( private AppData : AppData, private AppService: AppService) { }
@@ -52,7 +53,14 @@ export class Grafico2Component implements OnInit {
     this.gifs = [];
     let list = [];
     for(let i in e){
-      let tmp = [parseInt(e[i].jan),parseInt(e[i].fev),parseInt(e[i].mar),parseInt(e[i].abr),parseInt(e[i].mai),parseInt(e[i].jun),parseInt(e[i].jul),parseInt(e[i].ago),parseInt(e[i].set),parseInt(e[i].out),parseInt(e[i].nov),parseInt(e[i].dez)];
+      let tmp = [];
+      this.label = [];
+      for(let j in e[i]){
+         if(j != 'doenca' && j != 'casos' && j != 'ano'){
+            tmp.push(parseInt(e[i][j]));
+            this.label.push(j);
+         }   
+      } 
       this.gifs.push({data: tmp, label: e[i].doenca});
       list.push(e[i].doenca);
     }
@@ -62,7 +70,16 @@ export class Grafico2Component implements OnInit {
           this.gifs.push({data: this.AppData.lineChartData[i].data, label: this.AppData.lineChartData[i].label});
         }
     }
-    this.radarChartLabels = this.AppData.lineChartLabelsBairro;
+    console.log(this.label,this.AppData.lineChartLabelsBairro);
+    this.radarChartLabels = this.label;//this.AppData.lineChartLabelsBairro;
     this.radarChartData   = this.gifs;
   }
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
+
 }
