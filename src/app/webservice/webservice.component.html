@@ -15,14 +15,18 @@
         <table class="table table-responsive table-condensed">
           <tr>
             <th>Doenças</th>
-            <th>Nº de Casos [Janeiro~Julho]</th>
+            <th>Nº de Casos</th>
           </tr>
-          <tr *ngFor="let d of lineChartData">
+          <tr *ngFor="let d of json">
             <th>{{d.label}}</th>
             <td *ngFor="let label of doughnutChartLabels; let j=index">{{d && d.data[j]}}</td>
           </tr>
         </table>
-        <button (click)="randomize()">Gerar</button>
+        <div class="row" style="margin: 5px">
+          De:<ng2-datepicker [options]="options" [(ngModel)]="dataDe"></ng2-datepicker>
+          Até:<ng2-datepicker [options]="options" [(ngModel)]="dataAte"></ng2-datepicker>
+          <button (click)="randomizeType()" style="margin-top: 20px" class='.btn-default' type="button" class="btn btn-default">Atualizar</button>
+        </div>
       </div>
   <div class="col-md-1">
   </div>

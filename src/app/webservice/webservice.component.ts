@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { WebserviceService } from "./webservice.service";
+import { AppService } from "../app.service";
+import { AppData } from "../app.data";
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 
 @Component({
@@ -9,46 +12,61 @@ import { WebserviceService } from "./webservice.service";
   styleUrls: ['./webservice.component.css']
 })
 export class WebserviceComponent implements OnInit {
+  dataDe: DateModel;
+  dataAte: DateModel;
+  options: DatePickerOptions;
+  gifs: any[] = [];
+  json: any[] = [];
+  label: any[] = [];
+  term: string;
 
-  constructor( private WebserviceService : WebserviceService) { }
+  constructor( private WebserviceService : WebserviceService, private AppData : AppData, private AppService: AppService) { }
 
   ngOnInit() {
-      this.randomize();
+      this.doughnutChartData   = this.AppData.doughnutChartData;
+      this.doughnutChartLabels = this.AppData.doughnutChartLabels;
+      this.lineChartData       = this.AppData.lineChartData;
+      this.randomizeType();
   }
 
    public doughnutChartType:string = 'doughnut';
-   public lineChartData:Array<any> = [
-     {data: [65], label: 'Chikungunya'},
-     {data: [28], label: 'Dengue'},
-     {data: [18], label: 'Zika'},
-     {data: [18], label: 'Sífilis'}
-   ];
-   public doughnutChartData:number[] = [350, 450, 100, 350];
-   public doughnutChartLabels:Array<any> = ['Chikungunya', 'Dengue', 'Zika', 'Sífilis'];
+   public lineChartData:Array<any> = [];
+   public doughnutChartData:number[] = [];
+   public doughnutChartLabels:Array<any> = [];
    public doughnutOptions:any = { responsive: true };
 
 
-   public randomize():void {
-     let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-     let _doughnutChartData:Array<any> = new Array(this.doughnutChartData.length);
-     for (let i = 0; i < this.lineChartData.length; i++) {
-       _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-       for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-         _lineChartData[i].data[j] = Math.floor((Math.random() * 600) + 1);
-         _doughnutChartData[i] = _lineChartData[i].data[j];
-       }
+   public randomizeType():void {
+     try{
+       var de  = (this.dataDe.formatted != null) ? this.dataDe.formatted : '2015-07-07';
+     } catch (e) {
+       var de  = '2015-07-09';
      }
-     // grafico
-     this.doughnutChartData = _doughnutChartData;
-     // quadro
-     this.lineChartData = _lineChartData;
+     try{
+       var ate = (this.dataAte.formatted != null) ? this.dataAte.formatted : '2019-07-08';
+     } catch (e) {
+       var ate = '2019-07-08';
+     }
+     this.AppService.jsonR(de,ate).subscribe((response: Response) => this.proccess(response.json()));
    }
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
+   public proccess(e:any):void {
+     //this.json = e;
+     this.gifs = [];
+     this.json = [];
+     for(let i in e){
+       this.gifs.push(e[i].casos);
+       this.json.push({data: [e[i].casos], label: e[i].doenca});
+     }
+     //console.log(this.label,this.AppData.lineChartLabelsBairro);
+     //this.doughnutChartLabels = this.label;//this.AppData.lineChartLabelsBairro;
+     this.doughnutChartData   = this.gifs;
+   }
+   public chartClicked(e:any):void {
+     console.log(e);
+   }
 
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
+   public chartHovered(e:any):void {
+     console.log(e);
+   }
 
 }

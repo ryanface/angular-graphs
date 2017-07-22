@@ -30,11 +30,6 @@ export class Grafico2Component implements OnInit {
   public radarChartData:any = [];
   public radarChartType:string = 'radar';
 
-  public randomize():void {
-    let tmp = this.AppData.get('bairro');
-    this.radarChartData   = tmp[0].data;
-    this.radarChartLabels = tmp[0].legend;
-  }
   public randomizeType():void {
     try{
       var de  = (this.dataDe.formatted != null) ? this.dataDe.formatted : '2015-07-07';

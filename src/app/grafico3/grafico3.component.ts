@@ -52,7 +52,6 @@ export class Grafico3Component implements OnInit {
     for(let i in e){
       let tmp = [];
       for(let j in e[i]){
-         console.log(i, j);
          if(j != 'doenca' && j != 'casos' && j != 'ano')
             tmp.push(parseInt(e[i][j]));
       }

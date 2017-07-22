@@ -5,13 +5,15 @@ import { WebserviceComponent} from "./webservice.component";
 import { WebserviceService} from "./webservice.service";
 import { FormsModule} from "@angular/forms";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   imports: [
     CommonModule,
     WebserviceRoutingModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    DatePickerModule,
   ],
   declarations: [ WebserviceComponent ],
   exports:[ WebserviceComponent ],
