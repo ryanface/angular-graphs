@@ -2,13 +2,20 @@
  <div class="col-md-1">
  </div>
       <div class="col-md-5">
-        <div style="display: block">
-          <canvas baseChart
-                      [data]="doughnutChartData"
-                      [labels]="doughnutChartLabels"
-                      [chartType]="doughnutChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
+        <div class="row">
+          <div style="display: block">
+            *Nº de Casos por doença
+            <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 50px">
+          <app-rosca [doughnutChartData]="miniData" [doughnutChartLabels]="miniLabel" [legenda]="miniLegenda"></app-rosca>
+          <app-rosca [doughnutChartData]="miniData1" [doughnutChartLabels]="miniLabel1" [legenda]="miniLegenda1"></app-rosca>
         </div>
       </div>
       <div class="col-md-4" style="margin-bottom: 10px">

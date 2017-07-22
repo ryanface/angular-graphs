@@ -23,6 +23,12 @@ export class Grafico3Component implements OnInit {
   public lineChartLegend:boolean  = true;
   public lineChartData:any[] = [];
 
+  //mini
+  public miniData:Array<any> = [1,1,1,1];
+  public miniLabel:Array<any> = ['1','2','3','4'];
+  public miniLegenda:string = '*Meses com mais casos';
+  public miniRows:string = '10';
+
   constructor( private AppService : AppService, private AppData : AppData ) {
       this.options = new DatePickerOptions();
   }
@@ -44,6 +50,7 @@ export class Grafico3Component implements OnInit {
       var ate = '2019-07-08';
     }
     this.AppService.json(de,ate).subscribe((response: Response) => this.proccess(response.json()));
+    this.AppService.list(de,ate,'mes','12').subscribe((response: Response) => this.proccessB(response.json()));
   }
   public proccess(e:any):void {
     this.json = e;
@@ -68,6 +75,16 @@ export class Grafico3Component implements OnInit {
     this.lineChartLabels = this.AppData.lineChartLabels;
     this.lineChartData   = this.gifs;
   }
+
+  public proccessB(e:any):void {
+    this.miniData = [];
+    this.miniLabel= [];
+    for(let i in e){
+        this.miniData.push(e[i].casos);
+        this.miniLabel.push(this.AppData.lineChartLabels[(e[i].doenca-1)]);
+    }
+  }
+
   public chartClicked(e:any):void {
     console.log(e);
   }

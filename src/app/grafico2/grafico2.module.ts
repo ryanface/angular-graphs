@@ -8,6 +8,7 @@ import { AppData } from "../app.data";
 import { DemoModule } from '../demo/demo.module';
 import { FilterListModule } from './filter-list/filter-list.module';
 import { DatePickerModule } from 'ng2-datepicker';
+import { RoscaModule } from "../rosca/rosca.module";
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { DatePickerModule } from 'ng2-datepicker';
     DemoModule,
     FilterListModule,
     DatePickerModule,
+    RoscaModule,
   ],
   declarations: [ Grafico2Component ],
   exports:[ Grafico2Component ],

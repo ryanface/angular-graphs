@@ -18,6 +18,12 @@ export class Grafico2Component implements OnInit {
   label: any[] = [];
   term: string;
 
+  //mini
+  public miniData:Array<any> = [1,1,1,1];
+  public miniLabel:Array<any> = ['1','2','3','4'];
+  public miniLegenda:string = '*Bairros com mais casos';
+  public miniRows:string = '12';
+
   constructor( private AppData : AppData, private AppService: AppService) { }
 
   ngOnInit() {
@@ -42,6 +48,7 @@ export class Grafico2Component implements OnInit {
       var ate = '2019-07-08';
     }
     this.AppService.jsonB(de,ate).subscribe((response: Response) => this.proccess(response.json()));
+    this.AppService.list(de,ate,'bairro','10').subscribe((response: Response) => this.proccessB(response.json()));
   }
   public proccess(e:any):void {
     this.json = e;
@@ -69,6 +76,16 @@ export class Grafico2Component implements OnInit {
     this.radarChartLabels = this.label;//this.AppData.lineChartLabelsBairro;
     this.radarChartData   = this.gifs;
   }
+
+  public proccessB(e:any):void {
+    this.miniData = [];
+    this.miniLabel= [];
+    for(let i in e){
+        this.miniData.push(e[i].casos);
+        this.miniLabel.push(e[i].doenca);
+    }
+  }
+
   public chartClicked(e:any):void {
     console.log(e);
   }

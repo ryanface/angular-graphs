@@ -9,6 +9,7 @@ import { WebserviceModule } from './webservice/webservice.module';
 import { Grafico2Module } from './grafico2/grafico2.module';
 import { Grafico3Module } from './grafico3/grafico3.module';
 import { DemoModule } from './demo/demo.module';
+import { RoscaModule } from './rosca/rosca.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DemoModule } from './demo/demo.module';
     WebserviceModule,
     Grafico2Module,
     Grafico3Module,
-    DemoModule
+    DemoModule,
+    RoscaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

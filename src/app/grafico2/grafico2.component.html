@@ -10,17 +10,19 @@
                (chartClick)="chartClicked($event)"></canvas>
    </div>
    <div class="col-md-4" style="margin-bottom: 10px">
+     <app-rosca [doughnutChartData]="miniData" [doughnutChartLabels]="miniLabel" [legenda]="miniLegenda" [rows]="miniRows"></app-rosca>
    </div>
    <div class="col-md-1">
    </div>
 </div>
+
 <div class="row" style="margin-top: 10px">
   <div class="col-md-1">
   </div>
   <div class="col-md-7">
     <div class="row" style="margin-top: 50px">
       De:<ng2-datepicker [options]="options" [(ngModel)]="dataDe"></ng2-datepicker>
-      Até:<ng2-datepicker [options]="options" [(ngModel)]="dataAte"></ng2-datepicker>      
+      Até:<ng2-datepicker [options]="options" [(ngModel)]="dataAte"></ng2-datepicker>
       <button (click)="randomizeType()" class='.btn-default' type="button" class="btn btn-default">Atualizar</button>
     </div>
     <div class="row" style="margin-top: 50px">
