@@ -46,7 +46,7 @@ export class Grafico2Component implements OnInit {
     } catch (e) {
       var ate = '2019-07-08';
     }
-    this.AppService.json(de,ate).subscribe((response: Response) => this.proccess(response.json()));
+    this.AppService.jsonB(de,ate).subscribe((response: Response) => this.proccess(response.json()));
   }
   public proccess(e:any):void {
     this.json = e;
@@ -59,8 +59,8 @@ export class Grafico2Component implements OnInit {
          if(j != 'doenca' && j != 'casos' && j != 'ano'){
             tmp.push(parseInt(e[i][j]));
             this.label.push(j);
-         }   
-      } 
+         }
+      }
       this.gifs.push({data: tmp, label: e[i].doenca});
       list.push(e[i].doenca);
     }
@@ -70,7 +70,7 @@ export class Grafico2Component implements OnInit {
           this.gifs.push({data: this.AppData.lineChartData[i].data, label: this.AppData.lineChartData[i].label});
         }
     }
-    console.log(this.label,this.AppData.lineChartLabelsBairro);
+    //console.log(this.label,this.AppData.lineChartLabelsBairro);
     this.radarChartLabels = this.label;//this.AppData.lineChartLabelsBairro;
     this.radarChartData   = this.gifs;
   }
