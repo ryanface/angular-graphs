@@ -23,18 +23,13 @@ export class WebserviceComponent implements OnInit {
   constructor( private WebserviceService : WebserviceService, private AppData : AppData, private AppService: AppService) { }
 
   ngOnInit() {
-      this.doughnutChartData   = this.AppData.doughnutChartData;
-      this.doughnutChartLabels = this.AppData.doughnutChartLabels;
-      this.lineChartData       = this.AppData.lineChartData;
       this.randomizeType();
   }
 
-   public doughnutChartType:string = 'doughnut';
-   public lineChartData:Array<any> = [];
-   public doughnutChartData:number[] = [];
-   public doughnutChartLabels:Array<any> = [];
-   public doughnutOptions:any = { responsive: true };
-
+   //master
+   public masterData:Array<any> = [1,1,1,1];
+   public masterLabel:Array<any> = ['1','2','3','4'];
+   public masterLegenda:string =  '*Nº de Casos por doença';
    //mini
    public miniData:Array<any> = [1,1,1,1];
    public miniLabel:Array<any> = ['1','2','3','4'];
@@ -55,21 +50,21 @@ export class WebserviceComponent implements OnInit {
      } catch (e) {
        var ate = '2019-07-08';
      }
-     this.AppService.jsonR(de,ate).subscribe((response: Response) => this.proccess(response.json()));
+     this.AppService.jsonR(de,ate).subscribe((response: Response) => this.proccessA(response.json()));
      this.AppService.list(de,ate,'bairro','3').subscribe((response: Response) => this.proccessB(response.json()));
      this.AppService.list(de,ate,'mes','3').subscribe((response: Response) => this.proccessC(response.json()));
    }
-   public proccess(e:any):void {
-     //this.json = e;
-     this.gifs = [];
+   public proccessA(e:any):void {
      this.json = [];
+     //
+     this.masterData = [];
+     this.masterLabel= [];
      for(let i in e){
-       this.gifs.push(e[i].casos);
-       this.json.push({data: [e[i].casos], label: e[i].doenca});
+         this.masterData.push(e[i].casos);
+         this.masterLabel.push(e[i].doenca);
+         //
+         this.json.push({data: [e[i].casos], label: e[i].doenca});
      }
-     //console.log(this.label,this.AppData.lineChartLabelsBairro);
-     //this.doughnutChartLabels = this.label;//this.AppData.lineChartLabelsBairro;
-     this.doughnutChartData   = this.gifs;
    }
    public proccessB(e:any):void {
      this.miniData = [];

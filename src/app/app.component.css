@@ -29,3 +29,6 @@
     background: #2E8B57;
     background-color: #2E8B57;
 }
+td, th {
+    text-align: center !important;
+}
