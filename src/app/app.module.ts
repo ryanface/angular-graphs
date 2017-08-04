@@ -10,6 +10,7 @@ import { Grafico2Module } from './grafico2/grafico2.module';
 import { Grafico3Module } from './grafico3/grafico3.module';
 import { DemoModule } from './demo/demo.module';
 import { RoscaModule } from './rosca/rosca.module';
+import { ZingModule } from './zing/zing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RoscaModule } from './rosca/rosca.module';
     Grafico2Module,
     Grafico3Module,
     DemoModule,
-    RoscaModule
+    RoscaModule,
+    ZingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
