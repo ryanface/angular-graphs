@@ -17,7 +17,15 @@ export class Grafico3Component implements OnInit {
   json: any[] = [];
   term: string;
 
-  public lineChartOptions:any = {scaleShowVerticalLines: true,responsive: true};
+  public lineChartOptions:any = {
+    responsive: true,
+    //maintainAspectRatio: false,
+    showLines:true,
+    //spanGaps:false,
+    elements: { line: { tension: 0, } },
+    fill: false,//suavizar bordas
+    tooltips: {enabled : true},
+  };
   public lineChartLabels:string[] = [];
   public lineChartType:string     = 'line';
   public lineChartLegend:boolean  = true;

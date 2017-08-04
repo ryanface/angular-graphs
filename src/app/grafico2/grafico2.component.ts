@@ -34,7 +34,7 @@ export class Grafico2Component implements OnInit {
 
   public radarChartLabels:string[] = [];
   public radarChartData:any = [];
-  public radarChartType:string = 'radar';
+  public radarChartType:string = 'radar';//polarArea
 
   public randomizeType():void {
     try{
