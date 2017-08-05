@@ -7,6 +7,7 @@ import { FormsModule} from "@angular/forms";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DatePickerModule } from 'ng2-datepicker';
 import { RoscaModule } from "../rosca/rosca.module";
+import { ZingModule } from "../zing/zing.module";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { RoscaModule } from "../rosca/rosca.module";
     ChartsModule,
     DatePickerModule,
     RoscaModule,
+    ZingModule,
   ],
   declarations: [ WebserviceComponent ],
   exports:[ WebserviceComponent ],

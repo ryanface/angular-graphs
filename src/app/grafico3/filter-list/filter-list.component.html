@@ -5,7 +5,6 @@
     <thead>
     <tr>
       <td>Doença</td>
-      <td>Casos</td>
       <td>Ano</td>
       <td>Janeiro</td>
       <td>Fevereiro</td>
@@ -19,12 +18,12 @@
       <td>Outubro</td>
       <td>Novembro</td>
       <td>Dezembro</td>
+      <td>Total</td>
     </tr>
     </thead>
     <tbody>
       <tr  *ngFor="let gif of json">
           <td>{{gif.doenca}}</td>
-          <td>{{gif.casos}}</td>
           <td>{{gif.ano}}</td>
           <td>{{gif.jan}}</td>
           <td>{{gif.fev}}</td>
@@ -38,6 +37,7 @@
           <td>{{gif.out}}</td>
           <td>{{gif.nov}}</td>
           <td>{{gif.dez}}</td>
+          <td>{{gif.casos}}</td>
       </tr>
     </tbody>
 </table>

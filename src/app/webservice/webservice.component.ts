@@ -29,15 +29,17 @@ export class WebserviceComponent implements OnInit {
    //master
    public masterData:Array<any> = [1,1,1,1];
    public masterLabel:Array<any> = ['1','2','3','4'];
-   public masterLegenda:string =  '*Nº de Casos por doença';
+   public masterLegenda:string =  '*Nº de casos por doença';
    //mini
    public miniData:Array<any> = [1,1,1,1];
    public miniLabel:Array<any> = ['1','2','3','4'];
-   public miniLegenda:string = '*Bairros com mais casos';
+   public miniLegenda:string = '*Unidade notificadora com mais casos';
    //mini
    public miniData1:Array<any> = [1,1,1,1];
    public miniLabel1:Array<any> = ['1','2','3','4'];
    public miniLegenda1:string = '*Meses com mais casos';
+   //----
+   public type:string = 'doughnut';  //'line';//
 
    public randomizeType():void {
      try{
