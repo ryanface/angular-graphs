@@ -11,6 +11,7 @@ import { Grafico3Module } from './grafico3/grafico3.module';
 import { DemoModule } from './demo/demo.module';
 import { RoscaModule } from './rosca/rosca.module';
 import { ZingModule } from './zing/zing.module';
+import { DifilisModule } from './difilis/difilis.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ZingModule } from './zing/zing.module';
     Grafico3Module,
     DemoModule,
     RoscaModule,
-    ZingModule
+    ZingModule,
+    DifilisModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -38,19 +38,18 @@ export class ZingComponent implements OnInit {
   }
 
   update(){
-    console.log(this.Data);
     if(this.type == 'line'){
         let tmp:any[]  = [];
         for(let i in this.Data){
            tmp.push({ backgroundColor:this.Color, label:this.Data[i].label, data:this.Data[i].data })
         }
-        this.data = { labels: this.Labels, datasets: tmp };
+        this.data = { labels: this.Labels, datasets: tmp, backgroundColor:this.Color  };
     }
     if(this.type == 'doughnut') this.data = { labels: this.Labels, datasets: [{backgroundColor:this.Color, data:this.Data}] };
   }
 
   ngOnInit() {
-      setTimeout(()=>{    //<<<---    using ()=> syntax  setInterval(()=>{  
+      setTimeout(()=>{    //<<<---    using ()=> syntax  setInterval(()=>{
           this.update();
      },2000);
   }

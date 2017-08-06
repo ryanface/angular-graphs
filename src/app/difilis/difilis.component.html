@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-2">
+
+  </div>
+   <div class="col-md-6">
+
+     <canvas baseChart width="400" height="400"
+                     [datasets]="lineChartData"
+                     [labels]="lineChartLabels"
+                     [options]="lineChartOptions"
+                     [colors]="lineChartColors"
+                     [legend]="lineChartLegend"
+                     [chartType]="lineChartType"></canvas>
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<div class="row" style="margin-top: 10px">
+  <div class="col-md-2">
+
+  </div>
+  <div class="col-md-6">
+       <app-filter-list [json]="json"></app-filter-list>
+  </div>
+  <div class="col-md-2">
+
+  </div>  
+</div>

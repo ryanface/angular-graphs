@@ -21,7 +21,7 @@ export class Grafico2Component implements OnInit {
   //mini
   public miniData:Array<any> = [1,1,1,1];
   public miniLabel:Array<any> = ['1','2','3','4'];
-  public miniLegenda:string = '*Bairros com mais casos';
+  public miniLegenda:string = '*Unidades notificadoras com mais casos';
   public miniRows:string = '12';
 
   constructor( private AppData : AppData, private AppService: AppService) { }
