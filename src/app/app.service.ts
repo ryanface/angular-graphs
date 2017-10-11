@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AppService {
 
-  private host:string = 'http://ec2-54-167-230-31.compute-1.amazonaws.com/php-api/';
+  //private host:string = 'http://ec2-54-167-230-31.compute-1.amazonaws.com/php-api/';
+  private host:string = 'http://192.168.211.128/php/';
 
   constructor(private http: Http) {
   }
