@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
@@ -12,6 +13,10 @@ import { DemoModule } from './demo/demo.module';
 import { RoscaModule } from './rosca/rosca.module';
 import { ZingModule } from './zing/zing.module';
 import { DifilisModule } from './difilis/difilis.module';
+import { AdultoModule } from './adulto/adulto.module';
+
+import { GlobalDataService } from './globaldata.service';
+import { AppService } from "./app.service";
 
 @NgModule({
   declarations: [
@@ -29,9 +34,10 @@ import { DifilisModule } from './difilis/difilis.module';
     DemoModule,
     RoscaModule,
     ZingModule,
-    DifilisModule
+    DifilisModule,
+    AdultoModule
   ],
-  providers: [],
+  providers: [GlobalDataService,AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

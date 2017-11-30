@@ -8,7 +8,7 @@ import { DifilisComponent} from "./difilis.component";
 @NgModule({
   imports:[
     RouterModule.forChild([
-      { path: 'sifilis', component: DifilisComponent }
+      { path: 'sifilisx', component: DifilisComponent }
     ])
   ],
   exports:[

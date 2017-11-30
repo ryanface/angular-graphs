@@ -13,6 +13,256 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/adulto/adulto-routing.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adulto_component__ = __webpack_require__("../../../../../src/app/adulto/adulto.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoRoutingModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AdultoRoutingModule = (function () {
+    function AdultoRoutingModule() {
+    }
+    return AdultoRoutingModule;
+}());
+AdultoRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
+                { path: 'sifilis', component: __WEBPACK_IMPORTED_MODULE_2__adulto_component__["a" /* AdultoComponent */] },
+            ])
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
+        ]
+    })
+], AdultoRoutingModule);
+
+//# sourceMappingURL=adulto-routing.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/adulto/adulto.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".congenita{\r\n    background-color: rgb(158, 202, 225) !important;\r\n}\r\n.adultos{\r\n    background-color: rgb(49, 130, 189) !important;\r\n}\r\n.gestante{\r\n    background-color: rgb(107, 174, 214) !important;\r\n}\r\n.row{\r\n  width: 95%;\r\n}\r\n.clean{\r\n  clear: both;\r\n  padding-bottom: 10px;\r\n}\r\n\r\n#chart, #header, #footer {\r\n  position: absolute;\r\n  top: 0;\r\n}\r\n\r\n#header, #footer {\r\n  z-index: 1;\r\n  display: block;\r\n  font-size: 36px;\r\n  font-weight: 300;\r\n  text-shadow: 0 1px 0 #fff;\r\n}\r\n\r\n#header.inverted, #footer.inverted {\r\n  color: #fff;\r\n  text-shadow: 0 1px 4px #000;\r\n}\r\n\r\n#header {\r\n  top: 80px;\r\n  left: 140px;\r\n  width: 1000px;\r\n}\r\n\r\n#footer {\r\n  top: 680px;\r\n  right: 140px;\r\n  text-align: right;\r\n}\r\n\r\nrect {\r\n  fill: none;\r\n  pointer-events: all;\r\n}\r\n\r\npre {\r\n  font-size: 18px;\r\n}\r\n\r\nline {\r\n  stroke: #000;\r\n  stroke-width: 1.5px;\r\n}\r\n\r\n.string, .regexp {\r\n  color: #f39;\r\n}\r\n\r\n.keyword {\r\n  color: #00c;\r\n}\r\n\r\n.comment {\r\n  color: #777;\r\n  font-style: oblique;\r\n}\r\n\r\n.number {\r\n  color: #369;\r\n}\r\n\r\n.class, .special {\r\n  color: #1181B8;\r\n}\r\n\r\na:link, a:visited {\r\n  color: #000;\r\n  text-decoration: none;\r\n}\r\n\r\na:hover {\r\n  color: #666;\r\n}\r\n\r\n.hint {\r\n  position: absolute;\r\n  right: 0;\r\n  width: 1280px;\r\n  font-size: 12px;\r\n  color: #999;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/adulto/adulto.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n   <div class=\"col-md-1\">\n   </div>\n   <div class=\"col-md-7\">\n       <div class=\"col-md-2\">\n          Sífilis Congenita\n       </div>\n       <div class=\"col-md-2\">\n          Sífilis em adultos\n       </div>\n       <div class=\"col-md-2\">\n          Sífilis em gestante\n       </div>\n   </div>\n   <div class=\"col-md-1\">\n   </div>\n</div>\n<div class=\"row\">\n   <div class=\"col-md-1\">\n   </div>\n   <div class=\"col-md-7\">\n       <div class=\"col-md-2 congenita\"><p> </p></div>\n       <div class=\"col-md-2 adultos\"><p> </p></div>\n       <div class=\"col-md-2 gestante\"><p> </p></div>\n   </div>\n   <div class=\"col-md-1\">\n   </div>\n</div>\n\n<div class=\"row clean\"></div>\n\n<div class=\"row\">\n   <div class=\"col-md-1\">\n   </div>\n   <div class=\"col-md-7\">\n       <div id='treemap' class='treemap'></div>\n   </div>\n   <div class=\"col-md-1\">\n   </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/adulto/adulto.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AdultoComponent = (function () {
+    function AdultoComponent(AppService, gd) {
+        this.AppService = AppService;
+        this.gd = gd;
+    }
+    AdultoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = this.AppService.goService().subscribe(function (lista) { _this.callback(lista); }, function (error) { return console.log(error); });
+        this.AppService.query({});
+    };
+    AdultoComponent.prototype.ngOnDestroy = function () {
+        if (this.subscription)
+            this.subscription.unsubscribe();
+        this.AppService.goClear();
+    };
+    AdultoComponent.prototype.go = function () {
+        this.AppService.query({});
+    };
+    AdultoComponent.prototype.callback = function (a) {
+        if (a) {
+            this.mount_three(a);
+        }
+        else {
+            console.log('return null', a);
+        }
+    };
+    AdultoComponent.prototype.mount_three = function (a) {
+        var file = {};
+        for (var i in a) {
+            if (file[a[i].tipo] == undefined)
+                file[a[i].tipo] = [];
+            if (file[a[i].tipo][a[i].NM_BAIRRO] == undefined)
+                file[a[i].tipo][a[i].NM_BAIRRO] = [];
+            file[a[i].tipo][a[i].NM_BAIRRO].push(a[i]);
+        }
+        console.log(file);
+        this.mountMap(file);
+    };
+    AdultoComponent.prototype.mountMap = function (data) {
+        var list = { "name": "diet", "children": [] };
+        for (var i in data) {
+            var tmp = data[i];
+            var sub = { "name": i, "children": [] };
+            for (var j in tmp) {
+                sub.children.push({ 'name': j, "total": tmp[j].length });
+            }
+            list.children.push(sub);
+        }
+        this.treemap(list);
+    };
+    AdultoComponent.prototype.treemap = function (data) {
+        var w = 1280 - 80, h = 800 - 180, x = d3.scale.linear().range([0, w]), y = d3.scale.linear().range([0, h]), color = d3.scale.category20c(), root, node;
+        var treemap = d3.layout.treemap()
+            .round(false)
+            .size([w, h])
+            .sticky(true)
+            .value(function (d) { return d.total; });
+        var svg = d3.select("#treemap").append("div")
+            .attr("class", "chart")
+            .style("width", w + "px")
+            .style("height", h + "px")
+            .append("svg:svg")
+            .attr("width", w)
+            .attr("height", h)
+            .append("svg:g")
+            .attr("transform", "translate(.5,.5)");
+        //d3.json("/assets/flare.json", function(data) {
+        node = root = data;
+        var nodes = treemap.nodes(root)
+            .filter(function (d) { return !d.children; });
+        var cell = svg.selectAll("g")
+            .data(nodes)
+            .enter().append("svg:g")
+            .attr("class", "cell")
+            .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+            .on("click", function (d) { return d3.zoom(node == d.parent ? root : d.parent); });
+        cell.append("svg:rect")
+            .attr("width", function (d) { return d.dx - 1; })
+            .attr("height", function (d) { return d.dy - 1; })
+            .style("fill", function (d) { return color(d.parent.name); });
+        cell.append("svg:text")
+            .attr("x", function (d) { return d.dx / 2; })
+            .attr("y", function (d) { return d.dy / 2; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .text(function (d) { return d.name; })
+            .style("opacity", function (d) { d.w = this.getComputedTextLength(); return d.dx > d.w ? 1 : 0; });
+        //});
+        d3.zoom = function (d) {
+            var kx = w / d.dx, ky = h / d.dy;
+            x.domain([d.x, d.x + d.dx]);
+            y.domain([d.y, d.y + d.dy]);
+            var t = svg.selectAll("g.cell").transition()
+                .duration(d3.event.altKey ? 7500 : 750)
+                .attr("transform", function (d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+            t.select("rect")
+                .attr("width", function (d) { return kx * d.dx - 1; })
+                .attr("height", function (d) { return ky * d.dy - 1; });
+            t.select("text")
+                .attr("x", function (d) { return kx * d.dx / 2; })
+                .attr("y", function (d) { return ky * d.dy / 2; })
+                .style("opacity", function (d) { return kx * d.dx > d.w ? 1 : 0; });
+            node = d;
+            d3.event.stopPropagation();
+        };
+    };
+    return AdultoComponent;
+}());
+AdultoComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-adulto',
+        template: __webpack_require__("../../../../../src/app/adulto/adulto.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/adulto/adulto.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_service__["a" /* AppService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_service__["a" /* AppService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__globaldata_service__["a" /* GlobalDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__globaldata_service__["a" /* GlobalDataService */]) === "function" && _b || Object])
+], AdultoComponent);
+
+var _a, _b;
+//# sourceMappingURL=adulto.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/adulto/adulto.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adulto_routing_module__ = __webpack_require__("../../../../../src/app/adulto/adulto-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__adulto_component__ = __webpack_require__("../../../../../src/app/adulto/adulto.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var AdultoModule = (function () {
+    function AdultoModule() {
+    }
+    return AdultoModule;
+}());
+AdultoModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_2__adulto_routing_module__["a" /* AdultoRoutingModule */]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_3__adulto_component__["a" /* AdultoComponent */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_3__adulto_component__["a" /* AdultoComponent */]
+        ],
+        providers: [],
+    })
+], AdultoModule);
+
+//# sourceMappingURL=adulto.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/app-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37,10 +287,10 @@ var AppRoutingModule = (function () {
 AppRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot([])
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot([])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], AppRoutingModule);
@@ -207,19 +457,23 @@ AppData = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__find_find_module__ = __webpack_require__("../../../../../src/app/find/find.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__webservice_webservice_module__ = __webpack_require__("../../../../../src/app/webservice/webservice.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__grafico2_grafico2_module__ = __webpack_require__("../../../../../src/app/grafico2/grafico2.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__grafico3_grafico3_module__ = __webpack_require__("../../../../../src/app/grafico3/grafico3.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__demo_demo_module__ = __webpack_require__("../../../../../src/app/demo/demo.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__rosca_rosca_module__ = __webpack_require__("../../../../../src/app/rosca/rosca.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__zing_zing_module__ = __webpack_require__("../../../../../src/app/zing/zing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__difilis_difilis_module__ = __webpack_require__("../../../../../src/app/difilis/difilis.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__find_find_module__ = __webpack_require__("../../../../../src/app/find/find.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__webservice_webservice_module__ = __webpack_require__("../../../../../src/app/webservice/webservice.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__grafico2_grafico2_module__ = __webpack_require__("../../../../../src/app/grafico2/grafico2.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__grafico3_grafico3_module__ = __webpack_require__("../../../../../src/app/grafico3/grafico3.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__demo_demo_module__ = __webpack_require__("../../../../../src/app/demo/demo.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__rosca_rosca_module__ = __webpack_require__("../../../../../src/app/rosca/rosca.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__zing_zing_module__ = __webpack_require__("../../../../../src/app/zing/zing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__difilis_difilis_module__ = __webpack_require__("../../../../../src/app/difilis/difilis.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__adulto_adulto_module__ = __webpack_require__("../../../../../src/app/adulto/adulto.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -241,32 +495,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_5__home_home_module__["a" /* HomeModule */],
-            __WEBPACK_IMPORTED_MODULE_6__find_find_module__["a" /* FindModule */],
-            __WEBPACK_IMPORTED_MODULE_7__webservice_webservice_module__["a" /* WebserviceModule */],
-            __WEBPACK_IMPORTED_MODULE_8__grafico2_grafico2_module__["a" /* Grafico2Module */],
-            __WEBPACK_IMPORTED_MODULE_9__grafico3_grafico3_module__["a" /* Grafico3Module */],
-            __WEBPACK_IMPORTED_MODULE_10__demo_demo_module__["a" /* DemoModule */],
-            __WEBPACK_IMPORTED_MODULE_11__rosca_rosca_module__["a" /* RoscaModule */],
-            __WEBPACK_IMPORTED_MODULE_12__zing_zing_module__["a" /* ZingModule */],
-            __WEBPACK_IMPORTED_MODULE_13__difilis_difilis_module__["a" /* DifilisModule */]
+            __WEBPACK_IMPORTED_MODULE_5__app_routing_module__["a" /* AppRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_6__home_home_module__["a" /* HomeModule */],
+            __WEBPACK_IMPORTED_MODULE_7__find_find_module__["a" /* FindModule */],
+            __WEBPACK_IMPORTED_MODULE_8__webservice_webservice_module__["a" /* WebserviceModule */],
+            __WEBPACK_IMPORTED_MODULE_9__grafico2_grafico2_module__["a" /* Grafico2Module */],
+            __WEBPACK_IMPORTED_MODULE_10__grafico3_grafico3_module__["a" /* Grafico3Module */],
+            __WEBPACK_IMPORTED_MODULE_11__demo_demo_module__["a" /* DemoModule */],
+            __WEBPACK_IMPORTED_MODULE_12__rosca_rosca_module__["a" /* RoscaModule */],
+            __WEBPACK_IMPORTED_MODULE_13__zing_zing_module__["a" /* ZingModule */],
+            __WEBPACK_IMPORTED_MODULE_14__difilis_difilis_module__["a" /* DifilisModule */],
+            __WEBPACK_IMPORTED_MODULE_15__adulto_adulto_module__["a" /* AdultoModule */]
         ],
-        providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_16__globaldata_service__["a" /* GlobalDataService */], __WEBPACK_IMPORTED_MODULE_17__app_service__["a" /* AppService */], { provide: __WEBPACK_IMPORTED_MODULE_1__angular_common__["LocationStrategy"], useClass: __WEBPACK_IMPORTED_MODULE_1__angular_common__["HashLocationStrategy"] }],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -280,6 +539,12 @@ AppModule = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -290,13 +555,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var configuration = __webpack_require__("../../../../../src/configuration.js");
+
+
+
+
 
 
 var AppService = (function () {
-    //private host:string = 'http://192.168.211.128/php/';
-    function AppService(http) {
+    function AppService(http, route, gd) {
         this.http = http;
+        this.route = route;
+        this.gd = gd;
         this.host = 'http://ec2-54-167-230-31.compute-1.amazonaws.com/php-api/';
+        this.subject = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
+        this.go = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
+        this.connectServer();
     }
     AppService.prototype.json = function (de, ate) {
         var url = this.host + '?param1=data&valor1=2017&param2=data&valor2=' + de + '&param3=data&valor3=' + ate; //&param2=doenca&valor2=a
@@ -316,14 +590,52 @@ var AppService = (function () {
         var url = this.host + 'list.php?param1=data&valor1=2017&param2=data&valor2=' + de + '&param3=data&valor3=' + ate + '&param4=' + field + '&limit=' + limit; //&param2=doenca&valor2=a
         return this.http.get(url);
     };
+    AppService.prototype.connectServer = function () {
+        var _this = this;
+        try {
+            console.log('start connect');
+            this.socket = io(configuration.host + ':' + configuration.port, { 'transports': configuration.transports });
+            this.socket.on('connect', function () { console.log('end connect'); });
+            this.socket.on('event', function (data) { console.log('event'); });
+            this.socket.on('disconnect', function () { console.log('disconnect'); });
+            /*GET server*/
+            this.socket.on('queryx', function (a) { console.log('return', a.length); _this.goSend(a); });
+        }
+        catch (e) {
+            console.log('error', e);
+        }
+    };
+    AppService.prototype.disconnectServer = function () {
+        //this.socket.destroy();
+        //this.socket = undefined;
+    };
+    AppService.prototype.query = function (arg) {
+        if (arg === void 0) { arg = {}; }
+        try {
+            console.log('send query');
+            this.socket.emit("query", arg);
+        }
+        catch (e) {
+            console.log('error', e);
+        }
+    };
+    AppService.prototype.goSend = function (message) {
+        this.go.next(message);
+    };
+    AppService.prototype.goClear = function () {
+        this.go.next();
+    };
+    AppService.prototype.goService = function () {
+        return this.go.asObservable();
+    };
     return AppService;
 }());
 AppService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */]) === "function" && _c || Object])
 ], AppService);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=app.service.js.map
 
 /***/ }),
@@ -390,12 +702,12 @@ var DemoRoutingModule = (function () {
 DemoRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'datatable', component: __WEBPACK_IMPORTED_MODULE_2__demo_component__["a" /* DemoComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], DemoRoutingModule);
@@ -577,12 +889,12 @@ var DifilisRoutingModule = (function () {
 DifilisRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
-                { path: 'sifilis', component: __WEBPACK_IMPORTED_MODULE_2__difilis_component__["a" /* DifilisComponent */] }
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
+                { path: 'sifilisx', component: __WEBPACK_IMPORTED_MODULE_2__difilis_component__["a" /* DifilisComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], DifilisRoutingModule);
@@ -894,12 +1206,12 @@ var FindRoutingModule = (function () {
 FindRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'search', component: __WEBPACK_IMPORTED_MODULE_2__find_component__["a" /* FindComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], FindRoutingModule);
@@ -1068,6 +1380,54 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/globaldata.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalDataService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GlobalDataService = (function () {
+    function GlobalDataService() {
+        this.obj = {};
+        this.nav = {};
+    }
+    GlobalDataService.prototype.get = function (key) {
+        return (this.nav[key]) ? this.nav[key] : undefined;
+    };
+    GlobalDataService.prototype.set = function (key, val) {
+        this.nav[key] = val;
+        return this;
+    };
+    GlobalDataService.prototype.choice = function (url, list) {
+        console.log('choice list:', list);
+        this.nav.currentData = list;
+        this.nav.currentClick = url;
+        this.proccess();
+    };
+    GlobalDataService.prototype.clear = function () {
+        this.obj = {};
+        this.nav = {};
+    };
+    GlobalDataService.prototype.proccess = function () {
+        console.log("Global", this.nav, this.obj);
+    };
+    return GlobalDataService;
+}());
+GlobalDataService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+], GlobalDataService);
+
+//# sourceMappingURL=globaldata.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/grafico2/filter-list/filter-list.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1210,12 +1570,12 @@ var Grafico2RoutingModule = (function () {
 Grafico2RoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico2', component: __WEBPACK_IMPORTED_MODULE_2__grafico2_component__["a" /* Grafico2Component */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], Grafico2RoutingModule);
@@ -1586,12 +1946,12 @@ var Grafico3RoutingModule = (function () {
 Grafico3RoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico3', component: __WEBPACK_IMPORTED_MODULE_2__grafico3_component__["a" /* Grafico3Component */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], Grafico3RoutingModule);
@@ -1865,13 +2225,13 @@ var HomeRoutingModule = (function () {
 HomeRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'inicio', component: __WEBPACK_IMPORTED_MODULE_2__home_component__["a" /* HomeComponent */] },
                 { path: '', component: __WEBPACK_IMPORTED_MODULE_2__home_component__["a" /* HomeComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], HomeRoutingModule);
@@ -2016,12 +2376,12 @@ var RoscaRoutingModule = (function () {
 RoscaRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'txt', component: __WEBPACK_IMPORTED_MODULE_2__rosca_component__["a" /* RoscaComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], RoscaRoutingModule);
@@ -2188,12 +2548,12 @@ var WebserviceRoutingModule = (function () {
 WebserviceRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico', component: __WEBPACK_IMPORTED_MODULE_2__webservice_component__["a" /* WebserviceComponent */] }
             ])
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]
         ]
     })
 ], WebserviceRoutingModule);
@@ -2599,6 +2959,20 @@ ZingModule = __decorate([
 ], ZingModule);
 
 //# sourceMappingURL=zing.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/configuration.js":
+/***/ (function(module, exports) {
+
+var configuration = {
+    'host':'http://www',
+    'port':'4100',
+    'transports': ['websocket', 'polling']
+};
+
+module.exports = configuration;
+
 
 /***/ }),
 
