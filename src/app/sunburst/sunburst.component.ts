@@ -20,6 +20,9 @@ export class SunburstComponent implements OnInit {
                private gd:GlobalDataService) { }
 
   private subscription: Subscription;
+  public  dataFilter:any = {};
+  public  filter2:any    = [{name:'Sexo',value:'CS_SEXO'},{name:'Data Transmissão',value:'DT_TRANSSM'}];
+  public  filter3:string = 'CS_SEXO';
 
   ngOnInit() {
      this.subscription = this.AppService.goService().subscribe((lista: Response) => { this.callback(lista);  },(error) => console.log(error), );
@@ -46,19 +49,39 @@ export class SunburstComponent implements OnInit {
         if(file[a[i].tipo][a[i].NM_BAIRRO] == undefined) file[a[i].tipo][a[i].NM_BAIRRO] = [];
         file[a[i].tipo][a[i].NM_BAIRRO].push(a[i]);
      }
-    console.log('file',file);
+     this.dataFilter = file;
      this.mountMap(file);
+  }
+  public filter(){
+        console.log('filter',this.filter3);
+      d3.select("svg").remove();
+      this.mountMap(this.dataFilter);
   }
   public mountMap(data:any){
       let list:any = {}, master:any = {};
       let sub:any = [];
+      let legend:any = {M:'Masculino',F:'Feminino'};
       master = {name:'Master',children:[]};
       for(let i in data){
-         list = {name:i,children:[]};
+         let replace = {adulto:'Sífilis Adulto',congenita:'Sífilis Congenita',gestante:'Sífilis Gestante' };
+         list = {name:replace[i],children:[]};
          sub = [];
          for(let j in data[i]){
-             //console.log('i',i,'j',j, 'size',data[i][j].length);
-             let tmp = {name:j,size:data[i][j].length};
+             let tmp = {name:j,children:[]};
+             //motivo
+             let tratamento = {};
+             for(let x in data[i][j]){
+                 if(tratamento[data[i][j][x][this.filter3]] == undefined) tratamento[data[i][j][x][this.filter3]] = [];
+                     tratamento[data[i][j][x][this.filter3]].push({name:data[i][j][x][this.filter3]});
+             }
+             for(let l in tratamento){
+                let sexo:any;
+                if(l == 'M' || l == 'F')
+                 sexo = {name:(legend[l]==undefined)?'Não declarado':legend[l],size:tratamento[l].length};
+                else
+                 sexo = {name:(l ==undefined || l == '')?'Não declarado':l,size:tratamento[l].length};
+                 tmp.children.push(sexo);
+             }
              list.children.push(tmp);
          }
         master.children.push(list);
@@ -142,7 +165,10 @@ export class SunburstComponent implements OnInit {
       }
       d3.fill = function(d) {
        var p = d;
-       while (p.depth > 1) p = p.parent;
+       //console.log('hue',d);
+       //while (p.depth > 1) p = p.parent; //FAZ 1 COR POR GRUPO
+       //if(p.depth == 1) p = p.parent; //FAZ 1 COR POR GRUPO
+       while (p.depth > 1 && p.depth < 3) p = p.parent; //FAZ 1 COR POR GRUPO
        var c = d3.lab(hue(p.name));
        c.l = luminance(d.sum);
        return c;
@@ -196,13 +222,13 @@ export class SunburstComponent implements OnInit {
 
       var texts = svg.selectAll("text")
           .data(partitioned_data)
-        .enter().append("text")
-    		.filter(d3.filter_min_arc_size_text)
-        	.attr("transform", function(d) { return "rotate(" + d3.computeTextRotation(d) + ")"; })
-    		.attr("x", function(d) { return radius / 3 * d.depth; })
-    		.attr("dx", "6") // margin
-          .attr("dy", ".35em") // vertical-align
-    		.text(function(d,i) {return d.name})
+          .enter().append("text")
+      		.filter(d3.filter_min_arc_size_text)
+          	.attr("transform", function(d) { return "rotate(" + d3.computeTextRotation(d) + ")"; })
+        		.attr("x", function(d) { return radius / 3 * d.depth; })
+        		.attr("dx", "6") // margin
+            .attr("dy", ".35em") // vertical-align
+      		  .text(function(d,i) {return d.name});
       d3.zoom = function(root, p) {
                 d3.param.p = p;
                 d3.outsideAngle = d3.scale.linear().domain([0, 2 * Math.PI]);

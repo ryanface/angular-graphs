@@ -66,7 +66,7 @@ export class AdultoComponent implements OnInit {
         h = 620,
         x = d3.scale.linear().range([0, w]),
         y = d3.scale.linear().range([0, h]),
-        color = d3.scale.category20c(),
+        color = d3.scale.category10(),
         root,
         node;
 
@@ -101,7 +101,10 @@ export class AdultoComponent implements OnInit {
       cell.append("svg:rect")
           .attr("width", function(d) { return d.dx - 1; })
           .attr("height", function(d) { return d.dy - 1; })
-          .style("fill", function(d) {return color(d.parent.name); });
+          .style("fill", function(d) { var tmp = {'adulto':'rgb(255, 164, 141)','gestante':'rgb(255, 188, 84)','congenita':'rgb(141, 249, 127)'};
+                                        //console.log(d.parent.name,tmp[d.parent.name]);
+                                        return tmp[d.parent.name]; /*return color(d.parent.value);*/
+                                      });
 
       cell.append("svg:text")
           .attr("x", function(d) { return d.dx / 2; })

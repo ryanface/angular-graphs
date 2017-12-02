@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SunburstRoutingModule } from "./sunburst-routing.module";
 import { SunburstComponent } from "./sunburst.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    SunburstRoutingModule
+    SunburstRoutingModule,
+    FormsModule,
   ],
   declarations: [
     SunburstComponent
