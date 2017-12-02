@@ -62,8 +62,8 @@ export class AdultoComponent implements OnInit {
       this.treemap(list)
   }
   public treemap(data:any){
-    var w = 1280 - 80,
-        h = 800 - 180,
+    var w = 1050,
+        h = 620,
         x = d3.scale.linear().range([0, w]),
         y = d3.scale.linear().range([0, h]),
         color = d3.scale.category20c(),

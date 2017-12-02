@@ -14,6 +14,7 @@ import { RoscaModule } from './rosca/rosca.module';
 import { ZingModule } from './zing/zing.module';
 import { DifilisModule } from './difilis/difilis.module';
 import { AdultoModule } from './adulto/adulto.module';
+import { SunburstModule } from './sunburst/sunburst.module';
 
 import { GlobalDataService } from './globaldata.service';
 import { AppService } from "./app.service";
@@ -35,7 +36,8 @@ import { AppService } from "./app.service";
     RoscaModule,
     ZingModule,
     DifilisModule,
-    AdultoModule
+    AdultoModule,
+    SunburstModule
   ],
   providers: [GlobalDataService,AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
