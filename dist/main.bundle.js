@@ -1,15 +1,19 @@
-webpackJsonp([1],{
+webpackJsonp(["main"],{
 
-/***/ "../../../../../src async recursive":
+/***/ "../../../../../src/$$_gendir lazy recursive":
 /***/ (function(module, exports) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../src async recursive";
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
@@ -17,10 +21,10 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adulto_component__ = __webpack_require__("../../../../../src/app/adulto/adulto.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,7 +40,7 @@ var AdultoRoutingModule = (function () {
     return AdultoRoutingModule;
 }());
 AdultoRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'sifilis', component: __WEBPACK_IMPORTED_MODULE_2__adulto_component__["a" /* AdultoComponent */] },
@@ -81,10 +85,10 @@ module.exports = "<div class=\"row\">\n   <div class=\"col-md-1\">\n   </div>\n 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -210,7 +214,7 @@ var AdultoComponent = (function () {
     return AdultoComponent;
 }());
 AdultoComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-adulto',
         template: __webpack_require__("../../../../../src/app/adulto/adulto.component.html"),
         styles: [__webpack_require__("../../../../../src/app/adulto/adulto.component.css")]
@@ -227,11 +231,11 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adulto_routing_module__ = __webpack_require__("../../../../../src/app/adulto/adulto-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__adulto_component__ = __webpack_require__("../../../../../src/app/adulto/adulto.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdultoModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -248,7 +252,7 @@ var AdultoModule = (function () {
     return AdultoModule;
 }());
 AdultoModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__adulto_routing_module__["a" /* AdultoRoutingModule */]
@@ -271,9 +275,9 @@ AdultoModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -289,7 +293,7 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 AppRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot([])
         ],
@@ -332,8 +336,8 @@ module.exports = "<div style=\"text-align:center\">\n  <!---img [src]=\"fullImag
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -360,7 +364,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -375,8 +379,8 @@ AppComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppData; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -448,7 +452,7 @@ var AppData = (function () {
     return AppData;
 }());
 AppData = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], AppData);
 
@@ -460,6 +464,7 @@ AppData = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
@@ -479,7 +484,6 @@ AppData = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__sunburst_sunburst_module__ = __webpack_require__("../../../../../src/app/sunburst/sunburst.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -511,14 +515,14 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_5__app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_6__home_home_module__["a" /* HomeModule */],
             __WEBPACK_IMPORTED_MODULE_7__find_find_module__["a" /* FindModule */],
             __WEBPACK_IMPORTED_MODULE_8__webservice_webservice_module__["a" /* WebserviceModule */],
@@ -544,15 +548,13 @@ AppModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -575,8 +577,8 @@ var AppService = (function () {
         this.route = route;
         this.gd = gd;
         this.host = 'http://ec2-54-167-230-31.compute-1.amazonaws.com/php-api/';
-        this.subject = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
-        this.go = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["Subject"]();
+        this.subject = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["b" /* Subject */]();
+        this.go = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["b" /* Subject */]();
         this.connectServer();
     }
     AppService.prototype.json = function (de, ate) {
@@ -638,8 +640,8 @@ var AppService = (function () {
     return AppService;
 }());
 AppService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */]) === "function" && _c || Object])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__globaldata_service__["a" /* GlobalDataService */]) === "function" && _c || Object])
 ], AppService);
 
 var _a, _b, _c;
@@ -651,10 +653,10 @@ var _a, _b, _c;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataFilterPipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataFilterPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -675,7 +677,7 @@ var DataFilterPipe = (function () {
     return DataFilterPipe;
 }());
 DataFilterPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Pipe"])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Pipe"])({
         name: "dataFilter"
     })
 ], DataFilterPipe);
@@ -688,10 +690,10 @@ DataFilterPipe = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__demo_component__ = __webpack_require__("../../../../../src/app/demo/demo.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -707,7 +709,7 @@ var DemoRoutingModule = (function () {
     return DemoRoutingModule;
 }());
 DemoRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'datatable', component: __WEBPACK_IMPORTED_MODULE_2__demo_component__["a" /* DemoComponent */] }
@@ -734,10 +736,10 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-1\">\n  </div>\n  <
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_data__ = __webpack_require__("../../../../../src/app/app.data.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -796,11 +798,11 @@ var DemoComponent = (function () {
     return DemoComponent;
 }());
 DemoComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-demo',
         template: __webpack_require__("../../../../../src/app/demo/demo.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__app_data__["a" /* AppData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_data__["a" /* AppData */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__app_data__["a" /* AppData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_data__["a" /* AppData */]) === "function" && _b || Object])
 ], DemoComponent);
 
 var _a, _b;
@@ -812,6 +814,7 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
@@ -823,7 +826,6 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_filter_pipe__ = __webpack_require__("../../../../../src/app/demo/data-filter.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ng2_charts_ng2_charts__ = __webpack_require__("../../../../ng2-charts/ng2-charts.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_ng2_charts_ng2_charts__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DemoModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -845,12 +847,12 @@ var DemoModule = (function () {
     return DemoModule;
 }());
 DemoModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__["DataTableModule"],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_6__demo_routing_module__["a" /* DemoRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_8_ng2_charts_ng2_charts__["ChartsModule"]
         ],
@@ -872,10 +874,10 @@ can be found in the LICENSE file at http://angular.io/license
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifilisRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__difilis_component__ = __webpack_require__("../../../../../src/app/difilis/difilis.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifilisRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -894,7 +896,7 @@ var DifilisRoutingModule = (function () {
     return DifilisRoutingModule;
 }());
 DifilisRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'sifilisx', component: __WEBPACK_IMPORTED_MODULE_2__difilis_component__["a" /* DifilisComponent */] }
@@ -939,8 +941,8 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-2\">\n\n  </div>\n 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifilisComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1013,7 +1015,7 @@ var DifilisComponent = (function () {
     return DifilisComponent;
 }());
 DifilisComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-difilis',
         template: __webpack_require__("../../../../../src/app/difilis/difilis.component.html"),
         styles: [__webpack_require__("../../../../../src/app/difilis/difilis.component.css")]
@@ -1029,6 +1031,7 @@ DifilisComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifilisModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__difilis_component__ = __webpack_require__("../../../../../src/app/difilis/difilis.component.ts");
@@ -1036,7 +1039,6 @@ DifilisComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts__ = __webpack_require__("../../../../ng2-charts/ng2-charts.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__filter_list_filter_list_module__ = __webpack_require__("../../../../../src/app/difilis/filter-list/filter-list.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifilisModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1055,7 +1057,7 @@ var DifilisModule = (function () {
     return DifilisModule;
 }());
 DifilisModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3__difilis_routing_module__["a" /* DifilisRoutingModule */],
@@ -1100,9 +1102,9 @@ module.exports = "\n<!-- Term: <input type=\"text\" #searchText (input)=\"search
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1128,11 +1130,11 @@ var FilterListComponent = (function () {
     return FilterListComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], FilterListComponent.prototype, "json", void 0);
 FilterListComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-filter-list',
         template: __webpack_require__("../../../../../src/app/difilis/filter-list/filter-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/difilis/filter-list/filter-list.component.css")]
@@ -1149,12 +1151,12 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_list_component__ = __webpack_require__("../../../../../src/app/difilis/filter-list/filter-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__ = __webpack_require__("../../../../angular2-datatable/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_datatable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1171,7 +1173,7 @@ var FilterListModule = (function () {
     return FilterListModule;
 }());
 FilterListModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__["DataTableModule"]
@@ -1189,10 +1191,10 @@ FilterListModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__find_component__ = __webpack_require__("../../../../../src/app/find/find.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1211,7 +1213,7 @@ var FindRoutingModule = (function () {
     return FindRoutingModule;
 }());
 FindRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'search', component: __WEBPACK_IMPORTED_MODULE_2__find_component__["a" /* FindComponent */] }
@@ -1256,9 +1258,9 @@ module.exports = "Limit: <input type=\"number\" [(ngModel)]=\"limit\" >\nTerm: <
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__find_service__ = __webpack_require__("../../../../../src/app/find/find.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1288,7 +1290,7 @@ var FindComponent = (function () {
     return FindComponent;
 }());
 FindComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-find',
         template: __webpack_require__("../../../../../src/app/find/find.component.html"),
         styles: [__webpack_require__("../../../../../src/app/find/find.component.css")]
@@ -1305,13 +1307,13 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__find_routing_module__ = __webpack_require__("../../../../../src/app/find/find-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__find_component__ = __webpack_require__("../../../../../src/app/find/find.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__find_service__ = __webpack_require__("../../../../../src/app/find/find.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1330,7 +1332,7 @@ var FindModule = (function () {
     return FindModule;
 }());
 FindModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__find_routing_module__["a" /* FindRoutingModule */],
@@ -1350,9 +1352,9 @@ FindModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1378,8 +1380,8 @@ var FindService = (function () {
     return FindService;
 }());
 FindService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], FindService);
 
 var _a;
@@ -1391,8 +1393,8 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalDataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1428,7 +1430,7 @@ var GlobalDataService = (function () {
     return GlobalDataService;
 }());
 GlobalDataService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
 ], GlobalDataService);
 
 //# sourceMappingURL=globaldata.service.js.map
@@ -1464,9 +1466,9 @@ module.exports = "\n<div style=\"\">\n<table class=\"table table-striped\">\n   
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1492,11 +1494,11 @@ var FilterListComponent = (function () {
     return FilterListComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], FilterListComponent.prototype, "json", void 0);
 FilterListComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-filter-list',
         template: __webpack_require__("../../../../../src/app/grafico2/filter-list/filter-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/grafico2/filter-list/filter-list.component.css")]
@@ -1513,12 +1515,12 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_list_component__ = __webpack_require__("../../../../../src/app/grafico2/filter-list/filter-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__ = __webpack_require__("../../../../angular2-datatable/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_datatable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1535,7 +1537,7 @@ var FilterListModule = (function () {
     return FilterListModule;
 }());
 FilterListModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__["DataTableModule"]
@@ -1553,10 +1555,10 @@ FilterListModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2RoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grafico2_component__ = __webpack_require__("../../../../../src/app/grafico2/grafico2.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2RoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1575,7 +1577,7 @@ var Grafico2RoutingModule = (function () {
     return Grafico2RoutingModule;
 }());
 Grafico2RoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico2', component: __WEBPACK_IMPORTED_MODULE_2__grafico2_component__["a" /* Grafico2Component */] }
@@ -1620,10 +1622,10 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-1\">\n  </div>\n  <
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2Component; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_data__ = __webpack_require__("../../../../../src/app/app.data.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2Component; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1737,7 +1739,7 @@ var Grafico2Component = (function () {
     return Grafico2Component;
 }());
 Grafico2Component = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-grafico2',
         template: __webpack_require__("../../../../../src/app/grafico2/grafico2.component.html"),
         styles: [__webpack_require__("../../../../../src/app/grafico2/grafico2.component.css")]
@@ -1754,6 +1756,7 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2Module; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grafico2_routing_module__ = __webpack_require__("../../../../../src/app/grafico2/grafico2-routing.module.ts");
@@ -1766,7 +1769,6 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__filter_list_filter_list_module__ = __webpack_require__("../../../../../src/app/grafico2/filter-list/filter-list.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_datepicker__ = __webpack_require__("../../../../ng2-datepicker/lib-dist/ng2-datepicker.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__rosca_rosca_module__ = __webpack_require__("../../../../../src/app/rosca/rosca.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico2Module; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1790,7 +1792,7 @@ var Grafico2Module = (function () {
     return Grafico2Module;
 }());
 Grafico2Module = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__grafico2_routing_module__["a" /* Grafico2RoutingModule */],
@@ -1840,9 +1842,9 @@ module.exports = "\n<!-- Term: <input type=\"text\" #searchText (input)=\"search
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1868,11 +1870,11 @@ var FilterListComponent = (function () {
     return FilterListComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], FilterListComponent.prototype, "json", void 0);
 FilterListComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-filter-list',
         template: __webpack_require__("../../../../../src/app/grafico3/filter-list/filter-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/grafico3/filter-list/filter-list.component.css")]
@@ -1889,12 +1891,12 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_list_component__ = __webpack_require__("../../../../../src/app/grafico3/filter-list/filter-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__ = __webpack_require__("../../../../angular2-datatable/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_datatable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1911,7 +1913,7 @@ var FilterListModule = (function () {
     return FilterListModule;
 }());
 FilterListModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3_angular2_datatable__["DataTableModule"]
@@ -1929,10 +1931,10 @@ FilterListModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3RoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grafico3_component__ = __webpack_require__("../../../../../src/app/grafico3/grafico3.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3RoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1951,7 +1953,7 @@ var Grafico3RoutingModule = (function () {
     return Grafico3RoutingModule;
 }());
 Grafico3RoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico3', component: __WEBPACK_IMPORTED_MODULE_2__grafico3_component__["a" /* Grafico3Component */] }
@@ -1996,11 +1998,11 @@ module.exports = "<div class=\"row\">\n    <div class=\"col-md-1\">\n    </div>\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3Component; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_data__ = __webpack_require__("../../../../../src/app/app.data.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_datepicker__ = __webpack_require__("../../../../ng2-datepicker/lib-dist/ng2-datepicker.module.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3Component; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2131,7 +2133,7 @@ var Grafico3Component = (function () {
     return Grafico3Component;
 }());
 Grafico3Component = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-grafico3',
         template: __webpack_require__("../../../../../src/app/grafico3/grafico3.component.html"),
         styles: [__webpack_require__("../../../../../src/app/grafico3/grafico3.component.css")]
@@ -2148,6 +2150,7 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3Module; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
@@ -2160,7 +2163,6 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__filter_list_filter_list_module__ = __webpack_require__("../../../../../src/app/grafico3/filter-list/filter-list.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_datepicker__ = __webpack_require__("../../../../ng2-datepicker/lib-dist/ng2-datepicker.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__rosca_rosca_module__ = __webpack_require__("../../../../../src/app/rosca/rosca.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grafico3Module; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2184,7 +2186,7 @@ var Grafico3Module = (function () {
     return Grafico3Module;
 }());
 Grafico3Module = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_4__grafico3_routing_module__["a" /* Grafico3RoutingModule */],
@@ -2208,10 +2210,10 @@ Grafico3Module = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2230,7 +2232,7 @@ var HomeRoutingModule = (function () {
     return HomeRoutingModule;
 }());
 HomeRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'inicio', component: __WEBPACK_IMPORTED_MODULE_2__home_component__["a" /* HomeComponent */] },
@@ -2276,8 +2278,8 @@ module.exports = "<div class=\"row\">\n    <div class=\"col-md-1\">\n    </div>\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2297,7 +2299,7 @@ var HomeComponent = (function () {
     return HomeComponent;
 }());
 HomeComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
         template: __webpack_require__("../../../../../src/app/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/home/home.component.css")]
@@ -2313,12 +2315,12 @@ HomeComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_routing_module__ = __webpack_require__("../../../../../src/app/home/home-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__zing_zing_module__ = __webpack_require__("../../../../../src/app/zing/zing.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2336,7 +2338,7 @@ var HomeModule = (function () {
     return HomeModule;
 }());
 HomeModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__home_routing_module__["a" /* HomeRoutingModule */],
@@ -2359,10 +2361,10 @@ HomeModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoscaRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rosca_component__ = __webpack_require__("../../../../../src/app/rosca/rosca.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoscaRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2381,7 +2383,7 @@ var RoscaRoutingModule = (function () {
     return RoscaRoutingModule;
 }());
 RoscaRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'txt', component: __WEBPACK_IMPORTED_MODULE_2__rosca_component__["a" /* RoscaComponent */] }
@@ -2426,8 +2428,8 @@ module.exports = "\n    <div class=\"col-md-{{rows}}\">\n      <div style=\"disp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoscaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2455,23 +2457,23 @@ var RoscaComponent = (function () {
     return RoscaComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], RoscaComponent.prototype, "doughnutChartLabels", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], RoscaComponent.prototype, "doughnutChartData", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], RoscaComponent.prototype, "legenda", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], RoscaComponent.prototype, "rows", void 0);
 RoscaComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-rosca',
         template: __webpack_require__("../../../../../src/app/rosca/rosca.component.html"),
         styles: [__webpack_require__("../../../../../src/app/rosca/rosca.component.css")]
@@ -2487,13 +2489,13 @@ RoscaComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoscaModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rosca_component__ = __webpack_require__("../../../../../src/app/rosca/rosca.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rosca_routing_module__ = __webpack_require__("../../../../../src/app/rosca/rosca-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts__ = __webpack_require__("../../../../ng2-charts/ng2-charts.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_charts_ng2_charts__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoscaModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2511,7 +2513,7 @@ var RoscaModule = (function () {
     return RoscaModule;
 }());
 RoscaModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3__rosca_routing_module__["a" /* RoscaRoutingModule */],
@@ -2920,10 +2922,10 @@ module.exports = configuration;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sunburst_component__ = __webpack_require__("../../../../../src/app/sunburst/sunburst.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2939,7 +2941,7 @@ var SunburstRoutingModule = (function () {
     return SunburstRoutingModule;
 }());
 SunburstRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'sunburst', component: __WEBPACK_IMPORTED_MODULE_2__sunburst_component__["a" /* SunburstComponent */] },
@@ -2984,10 +2986,10 @@ module.exports = "<div class=\"row\">\n   <div class=\"col-md-1\">\n   </div>\n 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globaldata_service__ = __webpack_require__("../../../../../src/app/globaldata.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3267,7 +3269,7 @@ var SunburstComponent = (function () {
     return SunburstComponent;
 }());
 SunburstComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-sun',
         template: __webpack_require__("../../../../../src/app/sunburst/sunburst.component.html"),
         styles: [__webpack_require__("../../../../../src/app/sunburst/sunburst.component.css")]
@@ -3284,12 +3286,12 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sunburst_routing_module__ = __webpack_require__("../../../../../src/app/sunburst/sunburst-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sunburst_component__ = __webpack_require__("../../../../../src/app/sunburst/sunburst.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SunburstModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3307,7 +3309,7 @@ var SunburstModule = (function () {
     return SunburstModule;
 }());
 SunburstModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__sunburst_routing_module__["a" /* SunburstRoutingModule */],
@@ -3331,10 +3333,10 @@ SunburstModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__webservice_component__ = __webpack_require__("../../../../../src/app/webservice/webservice.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3353,7 +3355,7 @@ var WebserviceRoutingModule = (function () {
     return WebserviceRoutingModule;
 }());
 WebserviceRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild([
                 { path: 'grafico', component: __WEBPACK_IMPORTED_MODULE_2__webservice_component__["a" /* WebserviceComponent */] }
@@ -3398,11 +3400,11 @@ module.exports = "<div class=\"row\">\n <div class=\"col-md-1\">\n </div>\n     
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webservice_service__ = __webpack_require__("../../../../../src/app/webservice/webservice.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_data__ = __webpack_require__("../../../../../src/app/app.data.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3497,7 +3499,7 @@ var WebserviceComponent = (function () {
     return WebserviceComponent;
 }());
 WebserviceComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-webservice',
         template: __webpack_require__("../../../../../src/app/webservice/webservice.component.html"),
         styles: [__webpack_require__("../../../../../src/app/webservice/webservice.component.css")]
@@ -3514,6 +3516,7 @@ var _a, _b, _c;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__webservice_routing_module__ = __webpack_require__("../../../../../src/app/webservice/webservice-routing.module.ts");
@@ -3525,7 +3528,6 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_datepicker__ = __webpack_require__("../../../../ng2-datepicker/lib-dist/ng2-datepicker.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__rosca_rosca_module__ = __webpack_require__("../../../../../src/app/rosca/rosca.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__zing_zing_module__ = __webpack_require__("../../../../../src/app/zing/zing.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3548,7 +3550,7 @@ var WebserviceModule = (function () {
     return WebserviceModule;
 }());
 WebserviceModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_2__webservice_routing_module__["a" /* WebserviceRoutingModule */],
@@ -3572,9 +3574,9 @@ WebserviceModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebserviceService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3604,8 +3606,8 @@ var WebserviceService = (function () {
     return WebserviceService;
 }());
 WebserviceService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], WebserviceService);
 
 var _a;
@@ -3642,8 +3644,8 @@ module.exports = "\n<div class=\"col-md-{{rows}}\">\n  <div style=\"display: blo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3694,31 +3696,31 @@ var ZingComponent = (function () {
     return ZingComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], ZingComponent.prototype, "Labels", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array)
 ], ZingComponent.prototype, "Data", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], ZingComponent.prototype, "Options", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], ZingComponent.prototype, "legenda", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], ZingComponent.prototype, "type", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], ZingComponent.prototype, "rows", void 0);
 ZingComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-zing',
         template: __webpack_require__("../../../../../src/app/zing/zing.component.html"),
         styles: [__webpack_require__("../../../../../src/app/zing/zing.component.css")]
@@ -3734,12 +3736,12 @@ ZingComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__zing_component__ = __webpack_require__("../../../../../src/app/zing/zing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_chartjs__ = __webpack_require__("../../../../angular2-chartjs/dist/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_chartjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_chartjs__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ZingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3756,7 +3758,7 @@ var ZingModule = (function () {
     return ZingModule;
 }());
 ZingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3_angular2_chartjs__["ChartModule"]
         ],
@@ -3815,9 +3817,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),
