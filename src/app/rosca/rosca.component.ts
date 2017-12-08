@@ -43,9 +43,15 @@ export class RoscaComponent implements OnInit {
       this.dataChart.addColumn('number', 'Número');
       //
       this.localchart = new google.visualization.PieChart(document.getElementById(this.namex));
-      google.visualization.events.addListener(this.dataChart, 'select', ()=> {
-        console.log(this.dataChart.getSelection());
-        this.localchart.setSelection(this.dataChart.getSelection());
+      //
+      google.visualization.events.addListener(this.localchart, 'select', (a,b,c)=> {
+        var selectedItem = this.localchart.getSelection()[0];
+        //console.log(selectedItem);
+        this.localchart.setSelection(selectedItem);
+        if (selectedItem) {
+            var topping = this.dataChart.getValue(selectedItem.row, 0);
+            console.log('The user selected ' + topping);
+        }
       });
       let tmp:any = [];
       for(let i in this.doughnutChartLabels){

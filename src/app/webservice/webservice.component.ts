@@ -1,11 +1,11 @@
 declare var google: any;
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Response } from '@angular/http';
 import { WebserviceService } from "./webservice.service";
 import { AppService } from "../app.service";
 import { AppData } from "../app.data";
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
-
+import { GraphMapComponent } from './graph-map/graph-map.component';
 
 @Component({
   selector: 'app-webservice',
@@ -20,6 +20,8 @@ export class WebserviceComponent implements OnInit {
   json: any[] = [];
   label: any[] = [];
   term: string;
+
+  @ViewChild(GraphMapComponent) mySon: GraphMapComponent;
 
   constructor( private WebserviceService : WebserviceService, private AppData : AppData, private AppService: AppService) { }
 
@@ -45,7 +47,7 @@ export class WebserviceComponent implements OnInit {
    public miniLegenda1:string = '*Meses com mais casos';
    public miniName1:string =  'x3';
    //----
-   public type:string = 'doughnut';  //'line';//
+
 
    public randomizeType():void {
      try{
@@ -81,7 +83,7 @@ export class WebserviceComponent implements OnInit {
          this.miniData.push(e[i].casos);
          this.miniLabel.push(e[i].doenca);
      }
-     this.map();
+      this.mySon.open();
    }
    public proccessC(e:any):void {
      this.miniData1 = [];
@@ -91,28 +93,6 @@ export class WebserviceComponent implements OnInit {
          this.miniLabel1.push(this.AppData.lineChartLabels[(e[i].doenca-1)]);
      }
    }
-   public chartClicked(e:any):void {
-     console.log(e);
-   }
 
-   public chartHovered(e:any):void {
-     console.log(e);
-   }
 
-   public map(){
-       google.charts.load('current', { 'packages': ['map'] ,  'mapsApiKey': 'AIzaSyByGRAt324WMsI2hb5MTJhe0ch7QLCBvC0'});
-       google.charts.setOnLoadCallback(()=>{this.drawMap()});
-   }
-   drawMap() {
-       console.log(this.miniLabel);
-       let tmp:any = [];
-       for(let i in this.miniLabel){
-         tmp.push(['Chapecó, '+this.miniLabel[i],this.miniLabel[i]+' :'+this.miniData[i]]);
-       }
-       var data = google.visualization.arrayToDataTable(tmp);
-       var options = { mapType: 'styledMap',zoomLevel: 13,showTooltip: true,showInfoWindow: true,useMapTypeControl: true  };
-       var map = new google.visualization.Map(document.getElementById('chart_div'));
-
-     map.draw(data, options);
-   }
 }
