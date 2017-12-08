@@ -26,6 +26,7 @@ export class RoscaComponent implements OnInit {
   public graph:any = {};
   public dataChart:any;
   public localchart:any;
+  public Controls:any;
 
   constructor() { }
 
@@ -43,7 +44,7 @@ export class RoscaComponent implements OnInit {
       //
       this.localchart = new google.visualization.PieChart(document.getElementById(this.namex));
       google.visualization.events.addListener(this.dataChart, 'select', ()=> {
-        console.log(this.dataChart.getSelection()); 
+        console.log(this.dataChart.getSelection());
         this.localchart.setSelection(this.dataChart.getSelection());
       });
       let tmp:any = [];
@@ -52,6 +53,14 @@ export class RoscaComponent implements OnInit {
       }
       this.dataChart.addRows(tmp);
       this.localchart.draw(this.dataChart, {'title':this.legenda,'width':500,'height':300});
+      //controls
+      this.Controls = new google.visualization.ControlWrapper({
+         'controlType': 'NumberRangeFilter',
+         'containerId': this.namex,
+         'options': {
+           'filterColumnLabel': 'Donuts eaten'
+         }
+       });
    }
    selectHandler(self:any){
      console.log(self.dataChart);

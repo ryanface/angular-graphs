@@ -100,7 +100,7 @@ export class WebserviceComponent implements OnInit {
    }
 
    public map(){
-       google.charts.load('current', { 'packages': ['map'] });
+       google.charts.load('current', { 'packages': ['map'] ,  'mapsApiKey': 'AIzaSyByGRAt324WMsI2hb5MTJhe0ch7QLCBvC0'});
        google.charts.setOnLoadCallback(()=>{this.drawMap()});
    }
    drawMap() {
@@ -109,18 +109,8 @@ export class WebserviceComponent implements OnInit {
        for(let i in this.miniLabel){
          tmp.push(['Chapecó, '+this.miniLabel[i],this.miniLabel[i]+' :'+this.miniData[i]]);
        }
-       console.log(tmp);
        var data = google.visualization.arrayToDataTable(tmp);
-         /*['Bairro', 'Casos'],
-         ['Chapecó, Palmital', 'Chapecó: 1'],
-         ['Chapecó, SAIC', 'Chapecó: 1'],
-         ['Chapecó, Paraíso', 'Chapecó: 1'],
-       ]);*/
-       var options = {
-         showTooltip: true,
-         showInfoWindow: true,
-         mapTypeIds: ['styledMap', 'redEverything', 'imBlue'],
-       };
+       var options = { mapType: 'styledMap',zoomLevel: 13,showTooltip: true,showInfoWindow: true,useMapTypeControl: true  };
        var map = new google.visualization.Map(document.getElementById('chart_div'));
 
      map.draw(data, options);

@@ -15,15 +15,12 @@ import { ZingModule } from './zing/zing.module';
 import { DifilisModule } from './difilis/difilis.module';
 import { AdultoModule } from './adulto/adulto.module';
 import { SunburstModule } from './sunburst/sunburst.module';
-
 import { GlobalDataService } from './globaldata.service';
 import { AppService } from "./app.service";
-import { GoogleChartComponent } from './google-chart/google-chart.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GoogleChartComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
