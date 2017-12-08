@@ -18,10 +18,12 @@ import { SunburstModule } from './sunburst/sunburst.module';
 
 import { GlobalDataService } from './globaldata.service';
 import { AppService } from "./app.service";
+import { GoogleChartComponent } from './google-chart/google-chart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GoogleChartComponent
   ],
   imports: [
     BrowserModule,

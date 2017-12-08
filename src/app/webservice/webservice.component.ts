@@ -1,3 +1,4 @@
+declare var google: any;
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { WebserviceService } from "./webservice.service";
@@ -25,19 +26,24 @@ export class WebserviceComponent implements OnInit {
   ngOnInit() {
       this.randomizeType();
   }
+  ngOnDestroy() {
 
+  }
    //master
    public masterData:Array<any> = [1,1,1,1];
    public masterLabel:Array<any> = ['1','2','3','4'];
    public masterLegenda:string =  '*Nº de casos por doença';
+   public masterName:string =  'x1';
    //mini
    public miniData:Array<any> = [1,1,1,1];
    public miniLabel:Array<any> = ['1','2','3','4'];
-   public miniLegenda:string = '*Unidade notificadora com mais casos';
+   public miniLegenda:string = '*Unidades notificadoras com mais casos';
+   public miniName:string =  'x2';
    //mini
    public miniData1:Array<any> = [1,1,1,1];
    public miniLabel1:Array<any> = ['1','2','3','4'];
    public miniLegenda1:string = '*Meses com mais casos';
+   public miniName1:string =  'x3';
    //----
    public type:string = 'doughnut';  //'line';//
 
@@ -53,8 +59,8 @@ export class WebserviceComponent implements OnInit {
        var ate = '2019-07-08';
      }
      this.AppService.jsonR(de,ate).subscribe((response: Response) => this.proccessA(response.json()));
-     this.AppService.list(de,ate,'bairro','3').subscribe((response: Response) => this.proccessB(response.json()));
-     this.AppService.list(de,ate,'mes','3').subscribe((response: Response) => this.proccessC(response.json()));
+     this.AppService.list(de,ate,'bairro','10').subscribe((response: Response) => this.proccessB(response.json()));
+     this.AppService.list(de,ate,'mes','10').subscribe((response: Response) => this.proccessC(response.json()));
    }
    public proccessA(e:any):void {
      this.json = [];
@@ -75,6 +81,7 @@ export class WebserviceComponent implements OnInit {
          this.miniData.push(e[i].casos);
          this.miniLabel.push(e[i].doenca);
      }
+     this.map();
    }
    public proccessC(e:any):void {
      this.miniData1 = [];
@@ -92,4 +99,30 @@ export class WebserviceComponent implements OnInit {
      console.log(e);
    }
 
+   public map(){
+       google.charts.load('current', { 'packages': ['map'] });
+       google.charts.setOnLoadCallback(()=>{this.drawMap()});
+   }
+   drawMap() {
+       console.log(this.miniLabel);
+       let tmp:any = [];
+       for(let i in this.miniLabel){
+         tmp.push(['Chapecó, '+this.miniLabel[i],this.miniLabel[i]+' :'+this.miniData[i]]);
+       }
+       console.log(tmp);
+       var data = google.visualization.arrayToDataTable(tmp);
+         /*['Bairro', 'Casos'],
+         ['Chapecó, Palmital', 'Chapecó: 1'],
+         ['Chapecó, SAIC', 'Chapecó: 1'],
+         ['Chapecó, Paraíso', 'Chapecó: 1'],
+       ]);*/
+       var options = {
+         showTooltip: true,
+         showInfoWindow: true,
+         mapTypeIds: ['styledMap', 'redEverything', 'imBlue'],
+       };
+       var map = new google.visualization.Map(document.getElementById('chart_div'));
+
+     map.draw(data, options);
+   }
 }

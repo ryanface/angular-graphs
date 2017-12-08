@@ -1,34 +1,15 @@
 <div class="row">
  <div class="col-md-1">
  </div>
-      <div class="col-md-5">
-        <div class="row">
-          <div style="display: block">
-            <app-rosca [doughnutChartData]="masterData" [doughnutChartLabels]="masterLabel" [legenda]="masterLegenda" [rows]="10"></app-rosca>
-          </div>
-        </div>
+      <div class="col-md-7">
         <div class="row" style="margin-top: 50px">
-          <app-rosca [doughnutChartData]="miniData" [doughnutChartLabels]="miniLabel" [legenda]="miniLegenda"></app-rosca>
-          <app-rosca [doughnutChartData]="miniData1" [doughnutChartLabels]="miniLabel1" [legenda]="miniLegenda1"></app-rosca>
+          <app-rosca [doughnutChartData]="masterData" [namex]="masterName" [doughnutChartLabels]="masterLabel" [legenda]="masterLegenda"></app-rosca>
+          <app-rosca [doughnutChartData]="miniData" [namex]="miniName" [doughnutChartLabels]="miniLabel" [legenda]="miniLegenda"></app-rosca>
+          <app-rosca [doughnutChartData]="miniData1" [namex]="miniName1" [doughnutChartLabels]="miniLabel1" [legenda]="miniLegenda1"></app-rosca>
+
         </div>
       </div>
-      <div class="col-md-4" style="margin-bottom: 10px">
-        <table class="table table-responsive table-condensed">
-          <tr>
-            <th>Doenças</th>
-            <th>Nº de Casos</th>
-          </tr>
-          <tr *ngFor="let d of json">
-            <th>{{d.label}}</th>
-            <td>{{d.data}}</td>
-          </tr>
-        </table>
-        <div class="row" style="margin: 5px">
-          De:<ng2-datepicker [options]="options" [(ngModel)]="dataDe"></ng2-datepicker>
-          Até:<ng2-datepicker [options]="options" [(ngModel)]="dataAte"></ng2-datepicker>
-          <button (click)="randomizeType()" style="margin-top: 20px" class='.btn-default' type="button" class="btn btn-default">Atualizar</button>
-        </div>
-      </div>
-  <div class="col-md-1">
+  <div class="col-md-4">
+    <div id="chart_div"></div>
   </div>
 </div>
