@@ -24,6 +24,9 @@ export class SunburstComponent implements OnInit {
   public  filter2:any    = [{name:'Sexo',value:'CS_SEXO'},{name:'Data Transmissão',value:'DT_TRANSSM'}];
   public  filter3:string = 'CS_SEXO';
 
+  public cliqued:any;
+  public getMore:boolean;
+
   ngOnInit() {
      this.subscription = this.AppService.goService().subscribe((lista: Response) => { this.callback(lista);  },(error) => console.log(error), );
      this.AppService.query({});
@@ -31,6 +34,11 @@ export class SunburstComponent implements OnInit {
   ngOnDestroy() {
       if(this.subscription)this.subscription.unsubscribe();
       this.AppService.goClear();
+  }
+  public getClicked(a:any){
+      console.log('getClicked',a);
+      this.cliqued = a;
+      this.getMore = true;
   }
   public go(){
      this.AppService.query({});
@@ -87,7 +95,7 @@ export class SunburstComponent implements OnInit {
         master.children.push(list);
       }
       //master = datad3;
-      console.log('master',master);
+      //console.log('master',master);
       this.sunmap(master)
   }
   public sunmap(data:any[]){
@@ -230,6 +238,7 @@ export class SunburstComponent implements OnInit {
             .attr("dy", ".35em") // vertical-align
       		  .text(function(d,i) {return d.name});
       d3.zoom = function(root, p) {
+                d3.myCliqued(root, p);
                 d3.param.p = p;
                 d3.outsideAngle = d3.scale.linear().domain([0, 2 * Math.PI]);
                 center.datum(root);
@@ -266,6 +275,10 @@ export class SunburstComponent implements OnInit {
                   .text(function(d,i) {return d.name})
             		    .transition().delay(750).style("opacity", 1)
          }
+         d3.myCliqued = (root:any, p:any) => {
+            this.getClicked(p);
+         }
+
          d3.select(self.frameElement).style("height", margin.top + margin.bottom + "px");
   }
 }

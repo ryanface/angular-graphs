@@ -2,22 +2,33 @@
    <div class="col-md-1">
    </div>
    <div class="col-md-6">
-       <div class="col-md-2">
+       <!--div class="col-md-2">
        </div>
        <div class="col-md-2">
-         <!-- select [(ngModel)]="filter3" (change)="filter()">
+         <select [(ngModel)]="filter3" (change)="filter()">
             <option *ngFor="let v of filter2;" [value]="v.value">{{v.name}}</option>
-         </select -->
+         </select>
        </div>
        <div class="col-md-2">
-       </div>
+       </div-->
+      <div *ngIf="getMore">{{cliqued.name}}</div>
+      <div *ngIf="getMore" class="page">   
+       <table *ngIf="getMore" class="table table-striped">
+           <tr  *ngFor="let d of cliqued.children; let i = index">
+                <td>{{d.name}}</td><td>{{d.value}}</td>
+           </tr>
+       </table>
+     </div>
+
    </div>
    <div class="col-md-1">
    </div>
 </div>
 <div class="row">
    <div class="col-md-1"></div>
-   <div class="col-md-6"></div>
+   <div class="col-md-6">
+
+   </div>
    <div class="col-md-1"></div>
 </div>
 
