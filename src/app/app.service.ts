@@ -43,6 +43,11 @@ export class AppService {
     const url = this.host+'list.php?param1=data&valor1=2017&param2=data&valor2='+de+'&param3=data&valor3='+ate+'&param4='+field+'&limit='+limit; //&param2=doenca&valor2=a
     return this.http.get(url);
   }
+  month(de: string, ate: string, field: string, limit: string): Observable<Response> {
+    if(limit == undefined)limit='3';
+    const url = this.host+'month.php?param1=data&valor1=2017&param2=data&valor2='+de+'&param3=data&valor3='+ate+'&param4='+field+'&limit='+limit; //&param2=doenca&valor2=a
+    return this.http.get(url);
+  }
 
   public connectServer(){
     try{
@@ -78,5 +83,5 @@ export class AppService {
   }
   goService(): Observable<Response> {
       return this.go.asObservable();
-  }  
+  }
 }

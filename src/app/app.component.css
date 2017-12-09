@@ -1,4 +1,7 @@
-
+.row {
+    margin-right: 0px !important;
+    margin-left: 15px;
+}
 .navbar-custom{
    color:#fff;
    background: #2E8B57;

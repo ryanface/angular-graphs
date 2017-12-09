@@ -1,5 +1,5 @@
 declare var google: any;
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
 
 @Component({
@@ -17,6 +17,8 @@ export class GraphLineComponent implements OnInit {
   miniLegenda:string = '*Nº de casos por doença';
   @Input()
   miniName:string =  'x1';
+  @Output()
+    uploaded:EventEmitter<string> = new EventEmitter();
 
   public dataChart:any;
   public localchart:any;
@@ -26,6 +28,10 @@ export class GraphLineComponent implements OnInit {
   ngOnInit() {
 
   }
+  uploadComplete(call:boolean) {
+    this.uploaded.emit((call)?'ok':'no');
+  }
+
   public open(){
     google.charts.load('current', {'packages':['corechart', 'controls']});
     google.charts.setOnLoadCallback(()=>{
@@ -33,7 +39,7 @@ export class GraphLineComponent implements OnInit {
     });
   }
   rosca() {
-      console.log('rosca',this.miniLabel,this.miniData);
+      //console.log('rosca',this.miniLabel,this.miniData);
       //
       this.dataChart = new google.visualization.DataTable();
       this.dataChart.addColumn('string', this.miniLegenda);
@@ -47,8 +53,24 @@ export class GraphLineComponent implements OnInit {
       }
       this.dataChart.addRows(tmp);
       this.localchart.draw(this.dataChart, {'title':this.miniLegenda,'width':600,'height':350});
+      //
+      google.visualization.events.addListener(this.localchart, 'select', (a,b,c)=> {
+        var selectedItem = this.localchart.getSelection()[0];
+        this.localchart.setSelection(selectedItem);
+        if (selectedItem) {
+          try{
+            var topping = this.dataChart.getValue(selectedItem.row, 0);
+            console.log('The user selected ' + topping);
+            if(topping == 'Sífilis'){
+                this.uploadComplete(true);
+            }else{
+              this.uploadComplete(false);
+            }
+          }catch(e){
 
-     return this;
+          }
+        }
+      });
   }
 
 

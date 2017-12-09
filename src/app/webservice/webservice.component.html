@@ -1,7 +1,7 @@
 
-
-<app-graph-line [miniData]="masterData" [miniLabel]="masterLabel" [miniLegenda]="masterLegenda" [miniName]="masterName"></app-graph-line>
-
 <app-graph-map  [miniData]="miniData"   [miniLabel]="miniLabel"   [miniLegenda]="miniLegenda"   [miniName]="miniName"></app-graph-map>
 
-<app-graph-control [miniData]="miniData1" [miniLabel]="miniLabel1" [miniLegenda]="miniLegenda1" [miniName]="miniName1"></app-graph-control>
+<app-graph-line (uploaded)="someMethod($event)" [miniData]="masterData" [miniLabel]="masterLabel" [miniLegenda]="masterLegenda" [miniName]="masterName"></app-graph-line>
+<app-sun *ngIf="vewSunburst"></app-sun>
+
+<app-graph-control [miniData]="miniData1" [miniLabel]="miniLabel1" [miniLegenda]="miniLegenda1" [miniMeses1]="miniMeses1" [miniName]="miniName1"></app-graph-control>

@@ -7,6 +7,7 @@ import { AppData } from "../app.data";
 import { GraphMapComponent } from './graph-map/graph-map.component';
 import { GraphLineComponent } from './graph-line/graph-line.component';
 import { GraphControlComponent } from './graph-control/graph-control.component';
+import { SunburstComponent } from '../sunburst/sunburst.component';
 
 @Component({
   selector: 'app-webservice',
@@ -35,9 +36,12 @@ export class WebserviceComponent implements OnInit {
    public miniName:string =  'x2';
    //mini
    public miniData1:Array<any> = [1,1,1,1];
+   public miniMeses1:Array<any> = [1,1,1,1];
    public miniLabel1:Array<any> = ['1','2','3','4'];
    public miniLegenda1:string = '*Meses com mais casos';
    public miniName1:string =  'x3';
+
+   public vewSunburst:boolean = false;
 
    public randomizeType():void {
      var de  = '2015-07-09';
@@ -45,6 +49,7 @@ export class WebserviceComponent implements OnInit {
      this.AppService.jsonR(de,ate).subscribe((response: Response) => this.proccessA(response.json()));
      this.AppService.list(de,ate,'bairro','10').subscribe((response: Response) => this.proccessB(response.json()));
      this.AppService.list(de,ate,'mes','10').subscribe((response: Response) => this.proccessC(response.json()));
+     this.AppService.month(de,ate,'doenca','20').subscribe((response: Response) => this.month(response.json()));
    }
    public proccessA(e:any):void {
      this.masterData = [];
@@ -53,7 +58,7 @@ export class WebserviceComponent implements OnInit {
          this.masterData.push(e[i].casos);
          this.masterLabel.push(e[i].doenca);
      }
-      console.log('open',this.masterData);
+    //console.log('open',this.masterData);
      this.myLine.open();
    }
    public proccessB(e:any):void {
@@ -70,10 +75,19 @@ export class WebserviceComponent implements OnInit {
      this.miniLabel1= [];
      for(let i in e){
          this.miniData1.push(e[i].casos);
+         this.miniMeses1.push(e[i].doenca-1);
          this.miniLabel1.push(this.AppData.lineChartLabels[(e[i].doenca-1)]);
      }
      this.myControl.open();
    }
-
+   public month(e:any):void {
+     this.myControl.open_month(e);
+   }
+   public someMethod(event) {
+     if(event == 'ok')
+      this.vewSunburst = true;
+     else  
+      this.vewSunburst = false;
+   }
 
 }

@@ -94,7 +94,7 @@ export class SunburstComponent implements OnInit {
       var root = data;
       d3.param = {};
       //var root = datad3;
-      var margin = {top: 350, right: 480, bottom: 350, left: 480},
+      var margin = {top: 250, right: 380, bottom: 250, left: 380},
           radius = Math.min(margin.top, margin.right, margin.bottom, margin.left) - 10;
       d3.filter_min_arc_size_text = function(d, i) {return (d.dx*d.depth*radius/3)>14};
       var hue = d3.scale.category10();

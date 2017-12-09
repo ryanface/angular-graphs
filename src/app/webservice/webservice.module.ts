@@ -9,6 +9,7 @@ import { ZingModule } from "../zing/zing.module";
 import { GraphMapModule } from './graph-map/graph-map.module';
 import { GraphLineModule } from './graph-line/graph-line.module';
 import { GraphControlModule } from './graph-control/graph-control.module';
+import { SunburstModule } from '../sunburst/sunburst.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { GraphControlModule } from './graph-control/graph-control.module';
     GraphMapModule,
     GraphLineModule,
     GraphControlModule,
+    SunburstModule,
   ],
   declarations: [ WebserviceComponent ],
   exports:[ WebserviceComponent ],

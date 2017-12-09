@@ -1,4 +1,13 @@
-
+.row {
+    margin-right: 0px !important;
+    margin-left: 15px;
+}
 .margin {
   margin-top: 50px
 }
+.table {
+    width: 30%;
+    max-width: 100%;
+    margin-bottom: 0px !important;
+    margin-left: 100px;
+  }

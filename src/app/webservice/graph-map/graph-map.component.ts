@@ -54,7 +54,7 @@ export class GraphMapComponent implements OnInit {
         this.localchart.setSelection(selectedItem);
         if (selectedItem) {
             var topping = this.dataChart.getValue(selectedItem.row, 0);
-            console.log('The user selected ' + topping);
+            //console.log('The user selected ' + topping);
             this.updateMiniData('Chapecó, '+topping,topping+': 1')
         }
       });
