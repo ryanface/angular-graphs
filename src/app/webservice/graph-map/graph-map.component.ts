@@ -28,10 +28,6 @@ export class GraphMapComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  /**********************************************
-            2 linnha
-  *****************************************************/
   public open(){
       google.charts.load('current', { 'packages': ['map'] ,  'mapsApiKey': 'AIzaSyByGRAt324WMsI2hb5MTJhe0ch7QLCBvC0'});
       google.charts.setOnLoadCallback(()=>{
@@ -50,7 +46,7 @@ export class GraphMapComponent implements OnInit {
         tmp.push([this.miniLabel[i],parseInt(this.miniData[i])]);
       }
       this.dataChart.addRows(tmp);
-      this.localchart.draw(this.dataChart, {'title':this.miniLegenda,'width':500,'height':300});
+      this.localchart.draw(this.dataChart, {'title':this.miniLegenda,'width':600,'height':350});
       //
       google.visualization.events.addListener(this.localchart, 'select', (a,b,c)=> {
         var selectedItem = this.localchart.getSelection()[0];
@@ -65,9 +61,9 @@ export class GraphMapComponent implements OnInit {
      return this;
   }
   updateMiniData(label:string,data:string){
-      console.log(label);
+      //console.log(label);
       var tmp = [['Bairro', 'Doenças'],
-          ['Chapecó, '+label, label+':'+data]];
+          [label, label+':'+data]];
       this.map(tmp);
   }
   setMap(){
@@ -78,7 +74,7 @@ export class GraphMapComponent implements OnInit {
     this.map(tmp);
   }
   map(tmp:any = []):any {
-    console.log(tmp);
+    //console.log(tmp);
     this.dataMap = google.visualization.arrayToDataTable(tmp);
     var options = { mapType: 'styledMap',zoomLevel: 13,showTooltip: true,showInfoWindow: true,useMapTypeControl: true  };
     this.localMap = new google.visualization.Map(document.getElementById('chart_div'));

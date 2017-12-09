@@ -1,35 +1,7 @@
-<div class="row margin">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-7">
-            Visualizar e analisar a quantidade de casos de surto de uma determinada epidemia, comparar em diferentes escalas temporais a incidência de cada doença e a unidade notificadora da doença (bairro), analisar a estatística usando diferentes técnicas de visualização, temporal, espacial entre outras, relacionando os valores de uma alteração da quantidade de casos, através do tempo e do espaço da doença.
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row margin">
-      <div class="col-md-1"></div>
-      <div class="col-md-4">
-            <app-rosca [doughnutChartData]="masterData" [namex]="masterName" [doughnutChartLabels]="masterLabel" [legenda]="masterLegenda"></app-rosca>
-      </div>
-      <div class="col-md-4"></div>
-   </div>
-</div>
 
-<app-graph-map [miniData]="miniData" [miniLabel]="miniLabel" [miniLegenda]="miniLegenda" [miniName]="miniName"></app-graph-map>
 
-<div class="row margin">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-7">
-            Visualizar e analisar a quantidade de casos de surto de uma determinada epidemia, comparar em diferentes escalas temporais a incidência de cada doença e a unidade notificadora da doença (bairro), analisar a estatística usando diferentes técnicas de visualização, temporal, espacial entre outras, relacionando os valores de uma alteração da quantidade de casos, através do tempo e do espaço da doença.
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row margin">
-      <div class="col-md-1"></div>
-      <div class="col-md-4">
-            <app-rosca [doughnutChartData]="miniData1" [namex]="miniName1" [doughnutChartLabels]="miniLabel1" [legenda]="miniLegenda1"></app-rosca>
-      </div>
-      <div class="col-md-4"></div>
-   </div>
-</div>
+<app-graph-line [miniData]="masterData" [miniLabel]="masterLabel" [miniLegenda]="masterLegenda" [miniName]="masterName"></app-graph-line>
+
+<app-graph-map  [miniData]="miniData"   [miniLabel]="miniLabel"   [miniLegenda]="miniLegenda"   [miniName]="miniName"></app-graph-map>
+
+<app-graph-control [miniData]="miniData1" [miniLabel]="miniLabel1" [miniLegenda]="miniLegenda1" [miniName]="miniName1"></app-graph-control>

@@ -7,6 +7,8 @@ import { FormsModule} from "@angular/forms";
 import { RoscaModule } from "../rosca/rosca.module";
 import { ZingModule } from "../zing/zing.module";
 import { GraphMapModule } from './graph-map/graph-map.module';
+import { GraphLineModule } from './graph-line/graph-line.module';
+import { GraphControlModule } from './graph-control/graph-control.module';
 
 @NgModule({
   imports: [
@@ -16,6 +18,8 @@ import { GraphMapModule } from './graph-map/graph-map.module';
     RoscaModule,
     ZingModule,
     GraphMapModule,
+    GraphLineModule,
+    GraphControlModule,
   ],
   declarations: [ WebserviceComponent ],
   exports:[ WebserviceComponent ],
