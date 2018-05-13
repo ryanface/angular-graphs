@@ -1,0 +1,16 @@
+
+<BR/>
+<table class="table table-striped">
+    <thead>
+      <tr *ngIf="list">
+          <td></td>
+          <td  *ngFor="let td of ( list![0] | keys)">{{td.key}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let gif of list">
+          <td><input type="button" (click)="remove(gif.casoId)" value="del"></td>
+          <td  *ngFor="let td of ( gif | keys)">{{td.value}}</td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+<div class="row">
+   <div class="col-md-2">
+      <input type="button" (click)="get()" value="get">
+      <input type="button" (click)="add()" value="add">
+   </div>
+   <div class="col-md-6">
+      <app-filter-list [list]="list" (del)="remove($event)"></app-filter-list>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<div class="row" style="margin-top: 10px">
+
+</div>
