@@ -1,0 +1,20 @@
+<div class="row">
+   <div class="col-md-2">
+      <a href="https://docs.google.com/spreadsheets/d/1rYqJ3orTe09ON-A6HaOXhvhuWdpo4jfPQyYWMVtq10A" target="_blank">Planilha de Importação</a>
+      <br>
+      <input type="button" (click)="get()" value="get">
+   </div>
+   <div class="col-md-6">
+        <input type="text" [(ngModel)]="term">
+        <button type="button" id="Load"  (click)="Loadx()">Load!</button>
+        <app-filter-list [list]="list"></app-filter-list>
+
+        <div id="test2"></div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<div class="row" style="margin-top: 10px">
+
+</div>

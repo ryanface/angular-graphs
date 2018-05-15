@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { ModeloModule } from './modelo/modelo.module';
 import { CasoModule } from './casos/caso.module';
+import { ImportModule } from './import/import.module';
+
 import { GlobalDataService } from './globaldata.service';
 import { AppService } from "./app.service";
 
@@ -19,6 +22,8 @@ import { AppService } from "./app.service";
     HttpModule,
     ModeloModule,
     CasoModule,
+    ImportModule,
+    FormsModule,
   ],
   providers: [GlobalDataService,AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
