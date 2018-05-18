@@ -1,15 +1,43 @@
 <div class="row">
    <div class="col-md-2">
-      <input type="button" (click)="get()" value="get">
-      <input type="button" (click)="add()" value="add caso">
+
+   </div>
+   <div class="col-md-6">
+      <div class="panel panel-default">
+          <ul class="list-group">
+            <li class="list-group-item">
+             <input type="button" (click)="get()" value="Atualizar">
+             <input type="button" (click)="add()" value="add Caso">
+            </li>
+            <li class="list-group-item">
+                 idUnidade<input type="text" [(ngModel)]="idUnidade">
+                 idPessoa<input type="text" [(ngModel)]="idPessoa">
+            </li>
+            <li class="list-group-item">
+                 Unidade<input type="text" [(ngModel)]="unidade">
+                 Bairro<input type="text" [(ngModel)]="bairro">
+            </li>
+            <li class="list-group-item">
+                 Data Transmição<input type="text" [(ngModel)]="dataTransmicao">
+                 Data Registro<input type="text" [(ngModel)]="dataRegistro">
+            </li>
+            <li class="list-group-item">
+                 Sexo<input type="text" [(ngModel)]="sexo">
+                 Doença<input type="text" [(ngModel)]="doenca">
+            </li>
+          </ul>
+      </div>
+   </div>
+   <div class="col-md-2">
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-2">
+
    </div>
    <div class="col-md-6">
       <app-filter-list [list]="list" (del)="remove($event)"></app-filter-list>
-    </div>
-    <div class="col-md-2">
-
-    </div>
-</div>
-<div class="row" style="margin-top: 10px">
-
+   </div>
+   <div class="col-md-2">
+   </div>
 </div>

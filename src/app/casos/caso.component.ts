@@ -10,11 +10,30 @@ import { Response } from '@angular/http';
 export class CasoComponent implements OnInit {
 
   public list:any[];
+  //cadastro
+  public idUnidade:number = Math.floor(Math.random() * 6) + 1;
+  public idPessoa:number  = Math.floor(Math.random() * 6) + 1;
+  public unidade:string   = "centro";
+  public bairro:string    = "centro";
+  public sexo:string      = "F";
+  public dataRegistro:string   = new Date().toLocaleString().toString();
+  public dataTransmicao:string = new Date().toLocaleString().toString();
+  public doenca:string    = "modelo";
 
   constructor(private appService : AppService ) { }
 
   ngOnInit() {
       this.get();
+  }
+  public renew(){
+    this.idUnidade = Math.floor(Math.random() * 6) + 1;
+    this.idPessoa  = Math.floor(Math.random() * 6) + 1;
+    this.unidade   = "centro";
+    this.bairro    = "centro";
+    this.sexo     = "F";
+    this.dataRegistro   = new Date().toLocaleString().toString();
+    this.dataTransmicao = new Date().toLocaleString().toString();
+    this.doenca    = "modelo";
   }
   public get(){
     this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
@@ -30,58 +49,19 @@ export class CasoComponent implements OnInit {
      });
   }
   public add(){
-    /*let data: any = {
-                "nu_NOTIFIC" : 1174258,
-                "tp_NOT" : 2,
-                "id_AGRAVO" : "O981",
-                "dt_NOTIFIC" : "3/21/2017",
-                "nu_ANO" : 2017,
-                "sg_UF_NOT" : 42,
-                "id_MUNICIP" : 420420,
-                "id_REGIONA" : "",
-                "id_UNIDADE" : 2537575,
-                "dt_DIAG" : "3/21/2017",
-                "nm_PACIENT" : "FABIANA MARTINS ALVES",
-                "dt_NASC" : "9/21/1992",
-                "cs_SEXO" : "F",
-                "cs_GESTANT" : 2,
-                "nm_MAE_PAC" : "ZILDA MARTINS ALVES",
-                "sg_UF" : 42,
-                "nm_BAIRRO" : "PASSO DOS FORTES",
-                "nm_LOGRADO" : "RUA JOSE LUIZ MAIA",
-                "nu_NUMERO" : 21123,
-                "nm_COMPLEM" : "",
-                "dtTESTE1" : "3/21/2017",
-                "dsmotivo" : "FOI TRATADO TAMBEM",
-                "dt_DIGITA" : "3/31/2017",
-                "dt_TRANSUS" : "",
-                "dt_TRANSDM" : "",
-                "dt_TRANSSM" : "4/6/2017",
-                "dt_TRANSRM" : "",
-                "dt_TRANSRS" : "",
-                "dt_TRANSSE" : "",
-                "dt_OBS" : "",
-                "tipo" : "gestante"
-            };    */
-      let data: any = {
-                   "item1": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item2": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item3": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item4": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item5": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item6": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item7": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item8": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item9": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item10": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item11": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item12": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item13": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item14": {"name":"Tipo","value":"gestante","type":"string"}
-                  ,"item15": {"name":"Tipo","value":"gestante","type":"string"}
-              };
-      let tmp = JSON.stringify( data );
-      this.appService.post('http://localhost:8102/api/caso/create',tmp).subscribe((response: Response)=> {
+    let data: any = {
+                "idUnidade":this.idUnidade,
+                "idPessoa":this.idPessoa,
+                "unidade":this.unidade,
+                "bairro":this.bairro,
+                "sexo":this.sexo,
+                "dataRegistro":this.dataRegistro,
+                "dataTransmicao":this.dataTransmicao,
+                "doenca":this.doenca
+            };
+       this.renew();
+      //let tmp = JSON.stringify( data );
+      this.appService.post('http://localhost:8102/api/caso/create',data).subscribe((response: Response)=> {
            console.log('caso.post',response.json());
            this.get();
       });
