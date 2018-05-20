@@ -5,6 +5,7 @@
 <nav class="navbar navbar-inverse navbar-custom">
   <div class="container-fluid">
       <ul class="nav navbar-nav">
+        <li (click)="setActive('dashboard')" class="{{getActive('dashboard')}}"><a [routerLink]="'dashboard'">Dashboard</a></li>
         <li (click)="setActive('modelo')" class="{{getActive('modelo')}}"><a [routerLink]="'modelo'">Modelo</a></li>
         <li (click)="setActive('casos')" class="{{getActive('casos')}}"><a [routerLink]="'casos'">Cadastro Casos</a></li>
         <li (click)="setActive('import')" class="{{getActive('import')}}"><a [routerLink]="'import'">Importar Plan.</a></li>

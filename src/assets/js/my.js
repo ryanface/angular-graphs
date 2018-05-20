@@ -1,23 +1,21 @@
-var full = function(){
-  var chart2    = dc.rowChart("#test2");
-  d3.csv("/assets/sifilis.csv").then(function(experiments) {
-      //experiments = experiments.slice(0, 5);
-      //console.log(experiments);
-      var ndx = crossfilter(experiments);
-      var chart2Dimension = ndx.dimension(function (d) {
-          return d.CS_SEXO;
-      });
-      var chart2Group = chart2Dimension.group().reduceSum(function (d) {
-          return d.NU_ANO;
-      });
-      chart2
-          .width(500)
-          .height(200)
-          .dimension(chart2Dimension)
-          .group(chart2Group);
-          //.legend(dc.legend());
-      console.log(chart2Group);
-      dc.renderAll();
-  });
-
+function intervalTreeGroup(tree, firstDate, lastDate) {
+    return {
+        all: function() {
+            var begin = d3.timeMonth(firstDate), end = d3.timeMonth(lastDate);
+            var i = new Date(begin);
+            var ret = [], count;
+            do {
+                next = new Date(i);
+                next.setMonth(next.getMonth()+1);
+                count = 0;
+                tree.queryInterval(i.getTime(), next.getTime(), function() {
+                    ++count;
+                });
+                ret.push({key: i, value: count});
+                i = next;
+            }
+            while(i.getTime() <= end.getTime());
+            return ret;
+        }
+    };
 }

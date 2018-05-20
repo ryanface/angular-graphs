@@ -26,14 +26,17 @@ export class CasoComponent implements OnInit {
       this.get();
   }
   public renew(){
+    let doencas = ['Influenza','Sarampo','Rubéola','Caxumba','Catapora','Erisipela','Herpangina'];
+    let bairros = ['Líder','Cristo Rei','Esplanada','Santa Maria','Palmital','Maria Goretti','Eldorado'];
+    let tmp = Math.floor(Math.random() * 6) + 1;
     this.idUnidade = Math.floor(Math.random() * 6) + 1;
-    this.idPessoa  = Math.floor(Math.random() * 6) + 1;
-    this.unidade   = "centro";
-    this.bairro    = "centro";
+    this.idPessoa  = tmp;
+    this.unidade   = bairros[tmp];
+    this.bairro    = bairros[tmp];
     this.sexo     = "F";
-    this.dataRegistro   = new Date().toLocaleString().toString();
-    this.dataTransmicao = new Date().toLocaleString().toString();
-    this.doenca    = "modelo";
+    this.dataRegistro   = new Date(+(new Date()) - Math.floor(Math.random()*90000000000)).toLocaleString().toString();
+    this.dataTransmicao = new Date(+(new Date()) - Math.floor(Math.random()*90000000000)).toLocaleString().toString();
+    this.doenca    = doencas[Math.floor(Math.random() * 6) + 1];
   }
   public get(){
     this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {

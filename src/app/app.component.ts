@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { OnInit, OnDestroy,Component , Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +12,32 @@ export class AppComponent {
   fullImagePath2 = './assets/img/chapebandeira.png';
   currentChoice: string = "home";
 
- setActive(choice: string): void{
-     this.currentChoice = choice;
- }
+  constructor(private router: Router) {
+    router.events.subscribe((url:any) => this.follow(url));
+  }
+  ngOnInit() {
+  }
+  ngOnDestroy() {
+  }
 
- getActive(choice: string) : string{
-     if(this.currentChoice == choice)
-          return "active";
-     else
-          return "not";
- }
+  follow(url:any){
+     if(url.shouldActivate){
+        let tmp:string = url.url;
+        let tmp1:string[] = tmp.split('/');
+        this.setActive(tmp1[1]);
+        //setTimeout(()=>this.setActive(tmp1[1]),500);
+     }
+  }
+
+   setActive(choice: string): void{
+       this.currentChoice = choice;
+   }
+
+   getActive(choice: string) : string{
+       if(this.currentChoice == choice)
+            return "active";
+       else
+            return "not";
+   }
 
 }
