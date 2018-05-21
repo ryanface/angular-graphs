@@ -8,6 +8,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ModeloModule } from './modelo/modelo.module';
 import { CasoModule } from './casos/caso.module';
 import { ImportModule } from './import/import.module';
+import { WarningModule } from './warning/warning.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { GlobalDataService } from './globaldata.service';
@@ -26,6 +27,7 @@ import { AppService } from "./app.service";
     ImportModule,
     DashboardModule,
     FormsModule,
+    WarningModule,
   ],
   providers: [GlobalDataService,AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

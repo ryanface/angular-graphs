@@ -32,8 +32,7 @@ export class DashboardComponent implements OnInit {
       this.barUnidades  = dc.rowChart("#barUnidades");
       this.get();
   }
-  public get(){
-      console.log(1);
+  public get(){      
       this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
            this.list = response.json();
            this.full(this.list);
@@ -59,7 +58,7 @@ export class DashboardComponent implements OnInit {
       this.filterAll = this.ndx.groupAll();
       var firstDate = d3.min(experiments, function(x) { return (x != NaN) ? x['min'] :0; }),
           lastDate  = d3.max(experiments, function(x) { return (x != NaN) ? x['max'] :0; });
-      console.log(firstDate,lastDate,'experiments',experiments);
+      //console.log(firstDate,lastDate,'experiments',experiments);
       //TIMELINE ------------------------------------------------------
       var intervalDimension    = this.ndx.dimension(function(d) {return d.interval;});
       var projectsPerMonthTree = this.ndx.groupAll().reduce(
@@ -138,7 +137,7 @@ export class DashboardComponent implements OnInit {
          .drawPaths(true)
          .dimension(barchartDimension)
          .group(barchartGroup)
-         //.legend(dc.legend());
+         .legend(dc.legend());
 
 
       dc.renderAll();
