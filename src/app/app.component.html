@@ -5,6 +5,7 @@
 <nav class="navbar navbar-inverse navbar-custom">
   <div class="container-fluid">
       <ul class="nav navbar-nav">
+        <li (click)="setActive('login')" class="{{getActive('login')}}"><a>Login</a></li>
         <li (click)="setActive('dashboard')" class="{{getActive('dashboard')}}"><a [routerLink]="'dashboard'">Dashboard</a></li>
         <li (click)="setActive('warning')" class="{{getActive('warning')}}"><a [routerLink]="'warning'">Alertas</a></li>
         <li (click)="setActive('casos')" class="{{getActive('casos')}}"><a [routerLink]="'casos'">Cadastro Casos</a></li>

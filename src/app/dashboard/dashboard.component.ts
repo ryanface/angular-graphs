@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
       this.barUnidades  = dc.rowChart("#barUnidades");
       this.get();
   }
-  public get(){      
+  public get(){
       this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
            this.list = response.json();
            this.full(this.list);
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
              .width(1000)
              .height(300)
              .x(d3.scaleTime())
-             .y(d3.scaleLinear().domain([0,20]))
+             .y(d3.scaleLinear().domain([0,100]))
              .xUnits(d3.timeMonths)
              .gap(5)
              .elasticX(true)

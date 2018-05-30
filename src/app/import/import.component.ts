@@ -35,6 +35,10 @@ export class ImportComponent implements OnInit {
     this.socket.on('html', (a) =>{ this.result(a);  });
     this.socket.on('save', (a) =>{ this.result_save(a);  });
   }
+  ngOnDestroy() {
+    this.socket.destroy();
+    this.socket = undefined;
+  }
 
   public Loadx(){
     this.join = [];

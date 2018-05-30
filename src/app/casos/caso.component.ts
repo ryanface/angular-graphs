@@ -41,7 +41,7 @@ export class CasoComponent implements OnInit {
   public get(){
     this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
          this.list = response.json();
-         console.log(this.list);
+         console.log(this.list.length);
     });
   }
   public remove(id:string){
@@ -51,22 +51,24 @@ export class CasoComponent implements OnInit {
           this.get();
      });
   }
-  public add(){
-    let data: any = {
-                "idUnidade":this.idUnidade,
-                "idPessoa":this.idPessoa,
-                "unidade":this.unidade,
-                "bairro":this.bairro,
-                "sexo":this.sexo,
-                "dataRegistro":this.dataRegistro,
-                "dataTransmicao":this.dataTransmicao,
-                "doenca":this.doenca
+  public add(num:number=1){
+      for(let i=0; i<=num ; i++){
+            let data: any = {
+                    "idUnidade":this.idUnidade,
+                    "idPessoa":this.idPessoa,
+                    "unidade":this.unidade,
+                    "bairro":this.bairro,
+                    "sexo":this.sexo,
+                    "dataRegistro":this.dataRegistro,
+                    "dataTransmicao":this.dataTransmicao,
+                    "doenca":this.doenca
             };
-       this.renew();
-      //let tmp = JSON.stringify( data );
-      this.appService.post('http://localhost:8102/api/caso/create',data).subscribe((response: Response)=> {
-           console.log('caso.post',response.json());
-           this.get();
-      });
-    }
+            this.renew();
+            //let tmp = JSON.stringify( data );
+            this.appService.post('http://localhost:8102/api/caso/create',data).subscribe((response: Response)=> {
+                 //console.log('caso.post',response.json());
+            });
+       }
+        //this.get();
+  }
 }

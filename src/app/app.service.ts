@@ -13,6 +13,7 @@ import { GlobalDataService } from './globaldata.service';
 export class AppService {
 
   private host:string = 'http://localhost:8102/api/all';
+  public SOCKET:any
 
   constructor(private http: Http,
               private route: Router,

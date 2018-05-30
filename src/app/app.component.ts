@@ -1,5 +1,7 @@
+declare var io: any;
 import { OnInit, OnDestroy,Component , Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -12,12 +14,14 @@ export class AppComponent {
   fullImagePath2 = './assets/img/chapebandeira.png';
   currentChoice: string = "home";
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private appService : AppService) {
     router.events.subscribe((url:any) => this.follow(url));
   }
   ngOnInit() {
+
   }
   ngOnDestroy() {
+
   }
 
   follow(url:any){
