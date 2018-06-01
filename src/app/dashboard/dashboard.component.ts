@@ -17,26 +17,39 @@ import { Response } from '@angular/http';
 })
 export class DashboardComponent implements OnInit {
 
+  public socket:any;
   public list:any[];
   public ndx:any;
   public filterAll:any;
   public timeline:any;
+  public timescore:any;
   public barchart:any;
   public barUnidades:any;
 
   constructor(private appService : AppService ) { }
 
   ngOnInit() {
+      this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
+      this.socket.on('connect', function(){ console.log('connect');  });
+      this.socket.on('event', function(data){ console.log('event'); });
+      this.socket.on('disconnect', function(){ console.log('disconnect'); });
+
+
+      this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; this.full(a); });
+      this.socket.on('getScores', (a) =>{ console.log('getScores',a);  });
+
       this.timeline     = dc.barChart("#timeline");
       this.barchart     = dc.pieChart("#barchart");
       this.barUnidades  = dc.rowChart("#barUnidades");
-      this.get();
+      setTimeout(()=>{ this.get(); },1000);
   }
+  ngOnDestroy() {
+      this.socket.destroy();
+      this.socket = undefined;
+  }  
   public get(){
-      this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
-           this.list = response.json();
-           this.full(this.list);
-      });
+      this.socket.emit("getCasos");
+      this.socket.emit("getScores");
   }
   public filter(experiments:any):any{
       experiments.forEach(function(d) {
@@ -51,6 +64,7 @@ export class DashboardComponent implements OnInit {
       });
       return experiments;
   }
+  //
   public full(experiments:any){
       experiments   = this.filter(experiments);
 

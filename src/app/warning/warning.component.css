@@ -1,8 +1,20 @@
+.row {
+    margin-right: 0px !important;
+    margin-left: 15px;
+}
 td{
   padding: 10px;
 }
 
 .red{
   background-color: #ef0e0e;
+  color: #fff;
+}
+.yellow{
+  background-color: #fdd16e;
+  color: #fff;
+}
+.green{
+  background-color: #7dfd6e;
   color: #fff;
 }

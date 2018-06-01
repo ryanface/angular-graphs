@@ -1,15 +1,16 @@
 <div class="row">
     <div class="col-md-2">
-      <input type="button" (click)="run()" value="Run Teste Base">
-      <input type="button" (click)="add()" value="Duplicar Base">
-      <input type="button" (click)="get()" value="Testar">
+      <input type="button" (click)="proccessOne()" value="Run Teste Base">
+      <input type="button" (click)="proccessAll()" value="Processar Casos">  {{result_s}}
+      <input type="button" (click)="getScoreAll()" value="Atualizar">
     </div>
     <div class="col-md-8">
       <div class="row" *ngFor="let gif of list">
-          <td class="{{getClass(gif!.score.item)}}">{{gif!.score.item | number}}</td>
-          <td>{{gif!.data | slice:0:10}}</td>
-          <td>{{gif!.dataEnd | slice:0:10}}</td>
+          <td class="{{getClass(gif!.score.item)}}">{{gif!.score!.item | number}}</td>
+          <td>{{gif!.datatime | date}}</td>
+          <td>{{gif!.datatimeEnd | date}}</td>
           <td>{{gif!.list | json}}</td>
+          <!-- td><input type="button" (click)="save(gif)" value="Save"></td -->
       </div>
     </div>
     <div class="col-md-1">

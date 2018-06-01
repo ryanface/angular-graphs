@@ -26,7 +26,7 @@ export class AppService {
   post(url:string, data:any): Observable<Response> {
        let headers = new Headers({ 'Content-Type': 'application/json' });
        let options = new RequestOptions({ headers: headers });
-       console.log('post',data);
+       //console.log('post',data);
        return this.http.post(url,data,options);//.map(this.extractData);
   }
   extractData(res: Response) {

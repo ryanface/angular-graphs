@@ -1,3 +1,5 @@
+declare var io: any;
+
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
@@ -10,6 +12,8 @@ import { Response } from '@angular/http';
 export class CasoComponent implements OnInit {
 
   public list:any[];
+  public socket:any;
+  public result_s:any;
   //cadastro
   public idUnidade:number = Math.floor(Math.random() * 6) + 1;
   public idPessoa:number  = Math.floor(Math.random() * 6) + 1;
@@ -23,35 +27,41 @@ export class CasoComponent implements OnInit {
   constructor(private appService : AppService ) { }
 
   ngOnInit() {
-      this.get();
+      this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
+      this.socket.on('connect', function(){ console.log('connect');  });
+      this.socket.on('event', function(data){ console.log('event'); });
+      this.socket.on('disconnect', function(){ console.log('disconnect'); });
+
+      this.socket.on('save', (a) =>{ this.result_save(a);  });
+      this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; });
+
+      setTimeout(()=>{ this.get(); },1000);
+  }
+  ngOnDestroy() {
+      this.socket.destroy();
+      this.socket = undefined;
+  }
+  public result_save(a){
+      this.result_s = a;
   }
   public renew(){
-    let doencas = ['Influenza','Sarampo','Rubéola','Caxumba','Catapora','Erisipela','Herpangina'];
-    let bairros = ['Líder','Cristo Rei','Esplanada','Santa Maria','Palmital','Maria Goretti','Eldorado'];
-    let tmp = Math.floor(Math.random() * 6) + 1;
-    this.idUnidade = Math.floor(Math.random() * 6) + 1;
-    this.idPessoa  = tmp;
-    this.unidade   = bairros[tmp];
-    this.bairro    = bairros[tmp];
-    this.sexo     = "F";
-    this.dataRegistro   = new Date(+(new Date()) - Math.floor(Math.random()*90000000000)).toLocaleString().toString();
-    this.dataTransmicao = new Date(+(new Date()) - Math.floor(Math.random()*90000000000)).toLocaleString().toString();
-    this.doenca    = doencas[Math.floor(Math.random() * 6) + 1];
+        let doencas = ['Influenza','Sarampo','Rubéola','Caxumba','Catapora','Erisipela','Herpangina'];
+        let bairros = ['Líder','Cristo Rei','Esplanada','Santa Maria','Palmital','Maria Goretti','Eldorado'];
+        let tmp = Math.floor(Math.random() * 6) + 1;
+        this.idUnidade = Math.floor(Math.random() * 6) + 1;
+        this.idPessoa  = tmp;
+        this.unidade   = bairros[tmp];
+        this.bairro    = bairros[tmp];
+        this.sexo     = "F";
+        this.dataRegistro   = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
+        this.dataTransmicao = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
+        this.doenca    = doencas[Math.floor(Math.random() * 6) + 1];
   }
   public get(){
-    this.appService.get('http://localhost:8102/api/caso/all').subscribe((response: Response)=> {
-         this.list = response.json();
-         console.log(this.list.length);
-    });
-  }
-  public remove(id:string){
-     console.log('pai remove');
-     this.appService.post('http://localhost:8102/api/caso/del/'+id,{}).subscribe((response: Response)=> {
-          console.log('remove',response.json());
-          this.get();
-     });
+        this.socket.emit("getCasos");
   }
   public add(num:number=1){
+      var list = [];
       for(let i=0; i<=num ; i++){
             let data: any = {
                     "idUnidade":this.idUnidade,
@@ -63,12 +73,9 @@ export class CasoComponent implements OnInit {
                     "dataTransmicao":this.dataTransmicao,
                     "doenca":this.doenca
             };
+            list.push(data);
             this.renew();
-            //let tmp = JSON.stringify( data );
-            this.appService.post('http://localhost:8102/api/caso/create',data).subscribe((response: Response)=> {
-                 //console.log('caso.post',response.json());
-            });
        }
-        //this.get();
+       this.socket.emit("proc",list);
   }
 }
