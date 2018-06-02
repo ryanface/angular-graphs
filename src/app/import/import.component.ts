@@ -1,8 +1,6 @@
+declare var require: any;
 declare var io: any;
-declare var d3: any;
-declare var dc: any;
-declare var full: any;
-declare var crossfilter: any;
+var configuration = require('../../configuration');
 
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
@@ -29,7 +27,7 @@ export class ImportComponent implements OnInit {
   constructor(private appService : AppService,   private route: Router ) { }
 
   ngOnInit() {
-    this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
+    this.socket = io(configuration.socket,{'transports': ['websocket', 'polling']});
     this.socket.on('connect', function(){ console.log('connect');  });
     this.socket.on('event', function(data){ console.log('event'); });
     this.socket.on('disconnect', function(){ console.log('disconnect'); });

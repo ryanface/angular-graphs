@@ -25,7 +25,8 @@ export class WarningComponent implements OnInit {
   constructor(private appService : AppService, private route: Router ) { }
 
   ngOnInit() {
-      this.socket = io(configuration.soquet,{'transports': ['websocket', 'polling']});
+       //console.log(configuration.socket);
+      this.socket = io(configuration.socket,{'transports': ['websocket', 'polling']});
       this.socket.on('connect', function(){ console.log('connect');  });
       this.socket.on('event', function(data){ console.log('event'); });
       this.socket.on('disconnect', function(){ console.log('disconnect'); });

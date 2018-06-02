@@ -12,7 +12,6 @@ import { GlobalDataService } from './globaldata.service';
 @Injectable()
 export class AppService {
 
-  private host:string = 'http://localhost:8102/api/all';
   public SOCKET:any
   public AUTENTICATE:boolean=false;
 
