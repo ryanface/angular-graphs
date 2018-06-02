@@ -5,6 +5,9 @@
       <input type="button" (click)="getScoreAll()" value="Atualizar">
     </div>
     <div class="col-md-8">
+      <div class="row">
+            <div id="timeline"></div>
+      </div>
       <div class="row" *ngFor="let gif of list">
           <td class="{{getClass(gif!.score.item)}}">{{gif!.score!.item | number}}</td>
           <td>{{gif!.datatime | date}}</td>

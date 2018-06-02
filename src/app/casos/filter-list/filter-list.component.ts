@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
 import { AppService } from "../../app.service";
-import { KeysPipe } from '../../../pipes/keys';
 
 @Component({
   selector: 'app-filter-list',

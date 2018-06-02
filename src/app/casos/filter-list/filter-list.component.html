@@ -4,13 +4,33 @@
     <thead>
       <tr *ngIf="list">
           <td></td>
-          <td  *ngFor="let td of ( list![0] | keys)">{{td.key}}</td>
+          <td>_id</td>
+          <td>idUnidade</td>
+          <td>idPessoa</td>
+          <td>unidade</td>
+          <td>bairro</td>
+          <td>sexo</td>
+          <td>dataRegistro</td>
+          <td>dataTransmicao</td>
+          <td>doenca</td>
+          <td>created_at</td>
+          <td>timestamp</td>
       </tr>
     </thead>
     <tbody>
       <tr  *ngFor="let gif of list">
-          <td><input type="button" (click)="remove(gif.casoId)" value="del"></td>
-          <td  *ngFor="let td of (gif | keys)">{{td.value}}</td>
+          <td><input type="button" (click)="remove(gif._id)" value="del"></td>
+          <td>{{gif._id}}</td>
+          <td>{{gif.idUnidade}}</td>
+          <td>{{gif.idPessoa}}</td>
+          <td>{{gif.unidade}}</td>
+          <td>{{gif.bairro}}</td>
+          <td>{{gif.sexo}}</td>
+          <td>{{gif.dataRegistro}}</td>
+          <td>{{gif.dataTransmicao}}</td>
+          <td>{{gif.doenca}}</td>
+          <td>{{gif.created_at}}</td>
+          <td>{{gif.timestamp}}</td>
       </tr>
     </tbody>
 </table>

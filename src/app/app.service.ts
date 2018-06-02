@@ -14,6 +14,7 @@ export class AppService {
 
   private host:string = 'http://localhost:8102/api/all';
   public SOCKET:any
+  public AUTENTICATE:boolean=false;
 
   constructor(private http: Http,
               private route: Router,
@@ -32,6 +33,12 @@ export class AppService {
   extractData(res: Response) {
       let body = res.json();
       return body || {};
+  }
+  checkLogin(){
+     return this.AUTENTICATE;
+  }
+  logoff(){
+    this.AUTENTICATE = false;
   }
 
 

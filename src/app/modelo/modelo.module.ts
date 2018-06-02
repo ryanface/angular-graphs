@@ -2,15 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModeloComponent } from './modelo.component';
 import { ModeloRoutingModule } from "./modelo-routing.module";
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { FilterListModule } from './filter-list/filter-list.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     ModeloRoutingModule,
-    ChartsModule,
-    FilterListModule
+    FormsModule
   ],
   declarations: [ ModeloComponent ],
   exports:[ ModeloComponent ],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modelo',
@@ -11,12 +12,26 @@ import { Response } from '@angular/http';
 export class ModeloComponent implements OnInit {
 
   public list:any[];
+  public user:string;
+  public pass:string
 
-  constructor(private appService : AppService ) { }
+  constructor(private appService : AppService, private route: Router ) { }
 
   ngOnInit() {
-      this.get();
+      //this.get();
   }
+  public autenticate(){
+       if(this.user == 'admin' && this.pass == '123'){
+         this.appService.AUTENTICATE = true;
+         this.route.navigate(['/dashboard'])
+       }else{
+         this.appService.AUTENTICATE = false;
+       }
+  }
+  checkLogin(){
+     return this.appService.checkLogin();
+  }
+
   public get(){
     this.appService.get('http://localhost:8102/api/all').subscribe((response: Response)=> {
          this.list = response.json();

@@ -43,5 +43,11 @@ export class AppComponent {
        else
             return "not";
    }
+   checkLogin(){
+      return this.appService.checkLogin();
+   }
+   logoff(){
+     this.appService.logoff();
+   }
 
 }

@@ -1,8 +1,11 @@
+declare var require: any;
 declare var io: any;
+var configuration = require('../../configuration');
 
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-caso',
@@ -24,10 +27,10 @@ export class CasoComponent implements OnInit {
   public dataTransmicao:string = new Date().toLocaleString().toString();
   public doenca:string    = "modelo";
 
-  constructor(private appService : AppService ) { }
+  constructor(private appService : AppService, private route: Router ) { }
 
   ngOnInit() {
-      this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
+      this.socket = io(configuration.soquet,{'transports': ['websocket', 'polling']});
       this.socket.on('connect', function(){ console.log('connect');  });
       this.socket.on('event', function(data){ console.log('event'); });
       this.socket.on('disconnect', function(){ console.log('disconnect'); });
@@ -35,7 +38,10 @@ export class CasoComponent implements OnInit {
       this.socket.on('save', (a) =>{ this.result_save(a);  });
       this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; });
 
-      setTimeout(()=>{ this.get(); },1000);
+      if(!this.appService.checkLogin())
+        this.route.navigate(['/modelo'])
+      else
+        setTimeout(()=>{ this.get(); },1000);
   }
   ngOnDestroy() {
       this.socket.destroy();
@@ -53,8 +59,9 @@ export class CasoComponent implements OnInit {
         this.unidade   = bairros[tmp];
         this.bairro    = bairros[tmp];
         this.sexo     = "F";
-        this.dataRegistro   = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
-        this.dataTransmicao = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
+        let data = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
+        this.dataRegistro   = data;
+        this.dataTransmicao = data;
         this.doenca    = doencas[Math.floor(Math.random() * 6) + 1];
   }
   public get(){

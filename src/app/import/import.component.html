@@ -6,14 +6,13 @@
    <div class="col-md-6">
         Planilha:<input type="text" [(ngModel)]="planilha"><br>
         Range:<input type="text" [(ngModel)]="term">
-        <input type="button" (click)="selectOrientacao()" value="{{orientacao}}">
         <button type="button" id="Load"  (click)="Loadx()">Carregar Planilha</button>
+        <button type="button" id="Reload"  (click)="save()">Salvar Importação</button>{{result_s}}
 
         <app-filter-list [list]="list"></app-filter-list>
     </div>
     <div class="col-md-2">
-      {{result_s}}
-      <button type="button" id="Reload"  (click)="save()">Salvar Importação</button>
+
     </div>
 </div>
 <div class="row" style="margin-top: 10px">

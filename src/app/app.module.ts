@@ -16,7 +16,7 @@ import { AppService } from "./app.service";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,6 @@ import { AppService } from "./app.service";
     WarningModule,
   ],
   providers: [GlobalDataService,AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ declare var crossfilter: any;
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-import',
@@ -25,7 +26,7 @@ export class ImportComponent implements OnInit {
 
   public result_s:any;
 
-  constructor(private appService : AppService ) { }
+  constructor(private appService : AppService,   private route: Router ) { }
 
   ngOnInit() {
     this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
@@ -34,6 +35,9 @@ export class ImportComponent implements OnInit {
     this.socket.on('disconnect', function(){ console.log('disconnect'); });
     this.socket.on('html', (a) =>{ this.result(a);  });
     this.socket.on('save', (a) =>{ this.result_save(a);  });
+
+   if(!this.appService.checkLogin())
+     this.route.navigate(['/modelo'])
   }
   ngOnDestroy() {
     this.socket.destroy();
@@ -58,6 +62,7 @@ export class ImportComponent implements OnInit {
       this.orientacao = (this.orientacao == 'ROWS') ? 'COLUMNS' : 'ROWS';
   }
   public save(){
+    if(this.list[0] != undefined)
       this.socket.emit("save_plan",this.list);
   }
 

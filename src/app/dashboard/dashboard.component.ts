@@ -1,13 +1,16 @@
+declare var require: any;
 declare var io: any;
 declare var d3: any;
 declare var dc: any;
 declare var crossfilter: any;
 declare var lysenkoIntervalTree: any;
 declare var intervalTreeGroup: any;
+var configuration = require('../../configuration');
 
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,10 +29,10 @@ export class DashboardComponent implements OnInit {
   public barchart:any;
   public barUnidades:any;
 
-  constructor(private appService : AppService ) { }
+  constructor(private appService : AppService, private route: Router ) { }
 
   ngOnInit() {
-      this.socket = io('http://www:4100',{'transports': ['websocket', 'polling']});
+      this.socket = io(configuration.soquet,{'transports': ['websocket', 'polling']});
       this.socket.on('connect', function(){ console.log('connect');  });
       this.socket.on('event', function(data){ console.log('event'); });
       this.socket.on('disconnect', function(){ console.log('disconnect'); });
@@ -38,18 +41,22 @@ export class DashboardComponent implements OnInit {
       this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; this.full(a); });
       this.socket.on('getScores', (a) =>{ console.log('getScores',a);  });
 
-      this.timeline     = dc.barChart("#timeline");
-      this.barchart     = dc.pieChart("#barchart");
-      this.barUnidades  = dc.rowChart("#barUnidades");
-      setTimeout(()=>{ this.get(); },1000);
+      if(!this.appService.checkLogin())
+        this.route.navigate(['/modelo'])
+      else{
+        this.timeline     = dc.barChart("#timeline");
+        this.barchart     = dc.pieChart("#barchart");
+        this.barUnidades  = dc.rowChart("#barUnidades");
+        setTimeout(()=>{ this.get(); },1000);
+      }
   }
   ngOnDestroy() {
       this.socket.destroy();
       this.socket = undefined;
-  }  
+  }
   public get(){
       this.socket.emit("getCasos");
-      this.socket.emit("getScores");
+      //this.socket.emit("getScores");
   }
   public filter(experiments:any):any{
       experiments.forEach(function(d) {
@@ -96,7 +103,7 @@ export class DashboardComponent implements OnInit {
              .width(1000)
              .height(300)
              .x(d3.scaleTime())
-             .y(d3.scaleLinear().domain([0,100]))
+             .y(d3.scaleLinear().domain([0,200]))
              .xUnits(d3.timeMonths)
              .gap(5)
              .elasticX(true)

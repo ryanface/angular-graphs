@@ -1,10 +1,13 @@
 <div class="row">
    <div class="col-md-2">
-      <input type="button" (click)="get()" value="get">
-      <input type="button" (click)="add()" value="add">
+      <!--input type="button" (click)="get()" value="get"-->
+      <!--input type="button" (click)="add()" value="add"-->
    </div>
    <div class="col-md-6">
-      <app-filter-list [list]="list" (del)="remove($event)"></app-filter-list>
+      <!--app-filter-list [list]="list" (del)="remove($event)"></app-filter-list-->
+      <input *ngIf="!checkLogin()" type="text" [(ngModel)]="user">
+      <input *ngIf="!checkLogin()" type="password" [(ngModel)]="pass">
+      <button (click)="autenticate()" *ngIf="!checkLogin()" class='.btn-default' type="button" class="btn btn-default">Logar</button>      
     </div>
     <div class="col-md-2">
 
