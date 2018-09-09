@@ -54,6 +54,12 @@ export class DashboardComponent implements OnInit {
       this.socket.destroy();
       this.socket = undefined;
   }
+  checkLogin(){
+     return this.appService.checkLogin();
+  }
+  checkAdmin(){
+     return this.appService.checkAdmin();
+  }  
   public get(){
       this.socket.emit("getCasos");
       //this.socket.emit("getScores");

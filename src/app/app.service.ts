@@ -14,6 +14,7 @@ export class AppService {
 
   public SOCKET:any
   public AUTENTICATE:boolean=false;
+  public ADMIN:boolean=false;
 
   constructor(private http: Http,
               private route: Router,
@@ -36,8 +37,12 @@ export class AppService {
   checkLogin(){
      return this.AUTENTICATE;
   }
+  checkAdmin(){
+     return this.ADMIN;
+  }
   logoff(){
     this.AUTENTICATE = false;
+    this.ADMIN = false;
   }
 
 

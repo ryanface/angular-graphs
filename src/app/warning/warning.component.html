@@ -1,20 +1,27 @@
 <div class="row">
     <div class="col-md-2">
-      <input type="button" (click)="proccessOne()" value="Run Teste Base">
-      <input type="button" (click)="proccessAll()" value="Processar Casos">  {{result_s}}
-      <input type="button" (click)="getScoreAll()" value="Atualizar">
+      <input *ngIf="checkAdmin()" type="button" (click)="proccessOne()" value="Run Teste Base">
+      <input *ngIf="checkAdmin()" type="button" (click)="proccessAll()" value="Processar Casos">  {{result_s}}
+      <input *ngIf="checkAdmin()" type="button" (click)="getScoreAll()" value="Atualizar">
     </div>
     <div class="col-md-8">
+      <ng-container *ngIf="checkAdmin()">
+            <app-filter-list [list]="Diseases" (proccessAll)="proccessAll($event)" (getScoreAll)="getScoreAll($event)"></app-filter-list>
+      </ng-container>
       <div class="row">
-            <div id="timeline"></div>
+        <tr  *ngFor="let gif of Diseases; let i = index">
+            <div *ngIf="gif.doenca && gif.casos > 1" id="timeline{{gif.doenca}}" style="width: 900px; height: 400px"></div>
+        </tr>
       </div>
-      <div class="row" *ngFor="let gif of list">
-          <td class="{{getClass(gif!.score.item)}}">{{gif!.score!.item | number}}</td>
-          <td>{{gif!.datatime | date}}</td>
-          <td>{{gif!.datatimeEnd | date}}</td>
-          <td>{{gif!.list | json}}</td>
-          <!-- td><input type="button" (click)="save(gif)" value="Save"></td -->
-      </div>
+      <ng-container *ngIf="checkAdmin()">
+          <div class="row" *ngFor="let gif of list">
+              <td class="{{getClass(gif!.score.item)}}">{{gif!.score!.item | number}}</td>
+              <td>{{gif!.datatime | date}}</td>
+              <td>{{gif!.datatimeEnd | date}}</td>
+              <td>{{gif!.list | json}}</td>
+              <!-- td><input type="button" (click)="save(gif)" value="Save"></td -->
+          </div>
+      </ng-container>
     </div>
     <div class="col-md-1">
 

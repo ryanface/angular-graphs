@@ -25,7 +25,7 @@ export class CasoComponent implements OnInit {
   public sexo:string      = "F";
   public dataRegistro:string   = new Date().toLocaleString().toString();
   public dataTransmicao:string = new Date().toLocaleString().toString();
-  public doenca:string    = "modelo";
+  public doenca:string    = "Rubéola";
 
   constructor(private appService : AppService, private route: Router ) { }
 

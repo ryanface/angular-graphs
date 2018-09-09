@@ -22,13 +22,20 @@ export class ModeloComponent implements OnInit {
   }
   public autenticate(){
        if(this.user == 'admin' && this.pass == '123'){
-         this.appService.AUTENTICATE = true;
-         this.route.navigate(['/dashboard'])
+           this.appService.AUTENTICATE = true;
+           this.appService.ADMIN = true;
+           this.route.navigate(['/dashboard']);
+       }else if(this.user == 'view' && this.pass == ''){
+           this.appService.AUTENTICATE = true;
+           this.route.navigate(['/dashboard']);
        }else{
-         this.appService.AUTENTICATE = false;
+           this.appService.AUTENTICATE = false;
        }
   }
   checkLogin(){
      return this.appService.checkLogin();
+  }
+  checkAdmin(){
+    return this.appService.checkAdmin();
   }
 }

@@ -1,0 +1,16 @@
+
+<BR/>
+<table class="table table-striped">
+    <thead>
+
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let gif of list; let i = index">
+          <tr *ngIf="gif.casos > 1">
+              <td (click)="execProccessAll(gif.doenca)"> Calc </td>
+              <td (click)="execGetScoreAll(gif.doenca)">{{gif.doenca}}</td>
+              <td>{{gif.casos}}</td>
+          </tr>
+      </ng-container>
+    </tbody>
+</table>

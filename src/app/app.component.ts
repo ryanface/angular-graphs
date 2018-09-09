@@ -46,6 +46,9 @@ export class AppComponent {
    checkLogin(){
       return this.appService.checkLogin();
    }
+   checkAdmin(){
+      return this.appService.checkAdmin();
+   }
    logoff(){
      this.appService.logoff();
    }
