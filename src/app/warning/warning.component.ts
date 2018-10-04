@@ -37,8 +37,17 @@ export class WarningComponent implements OnInit {
 
       this.socket.on('save', (doenca,b) =>{ this.result_s = b; this.getScoreAll(doenca); });
       this.socket.on('getDiseases', (a) =>{ console.log('getDiseasesAll',a.length,a); this.returnDiseasesAll(a);  });
-      this.socket.on('getScores', (disease, scores) =>{ console.log('getScores',scores.length,disease); this.full(disease,scores); this.list = scores; });
-      this.socket.on('exam', (a) =>{ this.list = a; });
+      this.socket.on('getScores', (disease, scores) =>{
+                //console.log('getScores',scores,disease);
+              if(scores.length > 2)  {
+                this.full(disease,scores);
+                this.list = scores;
+                document.getElementById('timeline'+disease).style.display = "block";
+              }else{
+                document.getElementById('timeline'+disease).style.display = "none";
+              }
+      });
+      this.socket.on('exam', (a) =>{ console.log('exam',a); this.list = a; });
 
       if(!this.appService.checkLogin())
         this.route.navigate(['/modelo'])
@@ -63,7 +72,7 @@ export class WarningComponent implements OnInit {
       this.Diseases = diseases;
       for(let i in diseases){
         if(diseases[i].doenca != '')
-          if(diseases[i].casos > 1)
+          if(diseases[i].casos > 2)
             this.socket.emit("getScores",diseases[i].doenca,{'datatime':1});
       }
   }
@@ -78,10 +87,10 @@ export class WarningComponent implements OnInit {
 
   public proccessOne(){
       let list:any=[];
-      list.push({list:{ d1: 1, d2: 2, d3: 3, d4: 4, d5: 5, d6: 6, d7: 7 }});
-      list.push({list:{ d1: 1, d2: 2, d3: 3, d4: 4, d5: 5, d6: 4, d7: 3 }});
-      list.push({list:{ d1: 1, d2: 2, d3: 3, d4: 4, d5: 3, d6: 2, d7: 2 }});
-      list.push({list:{ d1: 1, d2: 2, d3: 3, d4: 2, d5: 1, d6: 0, d7: 1 }});
+      list.push({list:[1, 2, 3, 4, 5, 6, 7]});
+      list.push({list:[1, 2, 3, 4, 5, 4, 3]});
+      list.push({list:[1, 2, 3, 4, 3, 2, 2]});
+      list.push({list:[1, 2, 3, 2, 1, 0, 1]});
       this.socket.emit("exam",list);
   }
 

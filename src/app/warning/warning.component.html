@@ -10,7 +10,7 @@
       </ng-container>
       <div class="row">
         <tr  *ngFor="let gif of Diseases; let i = index">
-            <div *ngIf="gif.doenca && gif.casos > 1" id="timeline{{gif.doenca}}" style="width: 900px; height: 400px"></div>
+            <div *ngIf="gif.casos > 2" id="timeline{{gif.doenca}}" style="width: 900px; height: 400px">{{gif.casos}}</div>
         </tr>
       </div>
       <ng-container *ngIf="checkAdmin()">
