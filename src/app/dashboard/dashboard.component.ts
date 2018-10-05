@@ -110,7 +110,7 @@ export class DashboardComponent implements OnInit {
              .width(1000)
              .height(300)
              .x(d3.scaleTime())
-             .y(d3.scaleLinear().domain([0,200]))
+             .y(d3.scaleLinear().domain([0,500]))
              .xUnits(d3.timeMonths)
              .gap(5)
              .elasticX(true)
