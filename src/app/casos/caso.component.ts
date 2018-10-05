@@ -64,7 +64,7 @@ export class CasoComponent implements OnInit {
         let data = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
         this.dataRegistro   = data;
         this.dataTransmicao = data;
-        this.doenca    = doencas[Math.floor(Math.random() * 6) + 1];
+        this.doenca    = doencas[Math.floor(Math.random() * 3) + 1];
   }
   public get(){
         this.socket.emit("getCasos");
