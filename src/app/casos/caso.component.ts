@@ -53,7 +53,7 @@ export class CasoComponent implements OnInit {
       this.result_s = a;
   }
   public renew(){
-        let doencas = ['Influenza','Sarampo','Rubéola','Caxumba','Catapora','Erisipela','Herpangina'];
+        let doencas = ['Chikungunya','Dengue','Zika vírus','Sífilis'];
         let bairros = ['Líder','Cristo Rei','Esplanada','Santa Maria','Palmital','Maria Goretti','Eldorado'];
         let tmp = Math.floor(Math.random() * 6) + 1;
         this.idUnidade = Math.floor(Math.random() * 6) + 1;
