@@ -47,7 +47,8 @@ export class DashboardComponent implements OnInit {
         this.timeline     = dc.barChart("#timeline");
         this.barchart     = dc.pieChart("#barchart");
         this.barUnidades  = dc.rowChart("#barUnidades");
-        setTimeout(()=>{ this.get(); },1000);
+        //setTimeout(()=>{ this.get(); },5000);
+        this.socket.on('MongoDB', (a) =>{ if(a == 'ok') this.get();  });
       }
   }
   ngOnDestroy() {
@@ -59,7 +60,7 @@ export class DashboardComponent implements OnInit {
   }
   checkAdmin(){
      return this.appService.checkAdmin();
-  }  
+  }
   public get(){
       this.socket.emit("getCasos");
       //this.socket.emit("getScores");

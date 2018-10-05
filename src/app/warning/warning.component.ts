@@ -49,11 +49,13 @@ export class WarningComponent implements OnInit {
       });
       this.socket.on('exam', (a) =>{ console.log('exam',a); this.list = a; });
 
-      if(!this.appService.checkLogin())
-        this.route.navigate(['/modelo'])
-      else
-        setTimeout(()=>{ this.getDiseasesAll(); },1000);
-        //setTimeout(()=>{ this.getScoreAll(); },1000);
+      if(!this.appService.checkLogin()){
+        this.route.navigate(['/modelo']);
+      }else{
+        //setTimeout(()=>{ this.getDiseasesAll(); },5000);
+        this.socket.on('MongoDB', (a) =>{ if(a == 'ok') this.getDiseasesAll();  });
+      }
+
   }
   ngOnDestroy() {
       this.socket.destroy();

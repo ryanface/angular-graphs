@@ -38,10 +38,12 @@ export class CasoComponent implements OnInit {
       this.socket.on('save', (a) =>{ this.result_save(a);  });
       this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; });
 
-      if(!this.appService.checkLogin())
-        this.route.navigate(['/modelo'])
-      else
-        setTimeout(()=>{ this.get(); },1000);
+      if(!this.appService.checkLogin()){
+        this.route.navigate(['/modelo']);
+      }else{
+        //setTimeout(()=>{ this.get(); },5000);
+        this.socket.on('MongoDB', (a) =>{ if(a == 'ok') this.get();  });
+      }
   }
   ngOnDestroy() {
       this.socket.destroy();
