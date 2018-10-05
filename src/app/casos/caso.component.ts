@@ -53,7 +53,7 @@ export class CasoComponent implements OnInit {
       this.result_s = a;
   }
   public renew(){
-        let doencas = ['Chikungunya','Dengue','Zika vírus','Sífilis'];
+        let doencas = ['Chikungunya','Chikungunya','Dengue','Zika vírus','Sífilis'];
         let bairros = ['Líder','Cristo Rei','Esplanada','Santa Maria','Palmital','Maria Goretti','Eldorado'];
         let tmp = Math.floor(Math.random() * 6) + 1;
         this.idUnidade = Math.floor(Math.random() * 6) + 1;
@@ -64,7 +64,7 @@ export class CasoComponent implements OnInit {
         let data = new Date(+(new Date()) - Math.floor(Math.random()*40000000000)).toLocaleString().toString();
         this.dataRegistro   = data;
         this.dataTransmicao = data;
-        this.doenca    = doencas[Math.floor(Math.random() * 4)];
+        this.doenca    = doencas[Math.floor(Math.random() * 5)];
   }
   public get(){
         this.socket.emit("getCasos");
