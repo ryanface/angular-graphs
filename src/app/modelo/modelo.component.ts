@@ -25,7 +25,7 @@ export class ModeloComponent implements OnInit {
            this.appService.AUTENTICATE = true;
            this.appService.ADMIN = true;
            this.route.navigate(['/dashboard']);
-       }else if(this.user == 'view' && this.pass == ''){
+       }else if(this.user == 'view' && this.pass == '123'){
            this.appService.AUTENTICATE = true;
            this.route.navigate(['/dashboard']);
        }else{
