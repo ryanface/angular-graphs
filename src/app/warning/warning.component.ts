@@ -117,7 +117,7 @@ export class WarningComponent implements OnInit {
         var options = {
           pointSize: 10,
           title: 'Variação :'+disease,
-          curveType: 'function',
+          //curveType: 'function',
           legend: { position: 'bottom' },
           tooltip: {trigger: 'selection'}
         };
