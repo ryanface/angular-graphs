@@ -2,12 +2,9 @@
     <div class="col-md-1">
       <input *ngIf="checkAdmin()" type="button" (click)="get()" value="Atualizar">
     </div>
-    <div class="col-md-8">
-         <div id="timeline"></div>
-         <div id="barchart"></div>
-         <div id="barUnidades"></div>
-    </div>
-    <div class="col-md-1">
-
+    <div class="col-md-10">
+         <div id="timeline" class="space"><b>Número de casos por mês</b><br><br></div>
+         <div id="barchart" class="space"><b>Composição do total de casos por doença</b><br><br></div>
+         <div id="barUnidades" class="space"><b>Composição do total de casos por bairro</b> <br><br></div>
     </div>
 </div>

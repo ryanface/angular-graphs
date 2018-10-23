@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
       this.socket.on('disconnect', function(){ console.log('disconnect'); });
 
 
-      this.socket.on('getCasos', (a) =>{ console.log('getCasos',a); this.list = a; this.full(a); });
+      this.socket.on('getCasos', (a) =>{ this.list = a; this.full(a); });
       this.socket.on('getScores', (a) =>{ console.log('getScores',a);  });
 
       if(!this.appService.checkLogin())
@@ -143,11 +143,12 @@ export class DashboardComponent implements OnInit {
      });
       this.barUnidades
           .width(400)
-          .height(200)
+          .height(300)
           .renderLabel(true)
           .dimension(barUnidadesDimension)
           .group(barUnidadesGroup)
-          .turnOnControls(true);
+          .turnOnControls(true)
+          .legend(dc.legend());
     //BAR DOENCAS ------------------------------------------------------
      var barchartDimension = this.ndx.dimension(function (d) {
          return d.doenca;
