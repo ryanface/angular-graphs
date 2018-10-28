@@ -105,9 +105,12 @@ export class WarningComponent implements OnInit {
       experiments.forEach(function(d) {
            let tmp = d.dataEnd.split('T')[0].split('-');
            d.data = tmp[2]+'/'+tmp[1]+'/'+tmp[0];
-           if(d.score.item && d.score.log)
+           if(!d.score.item)
+              data.push([d.data,d.score.item,null]);
+           else
               data.push([d.data,d.score.item,d.score.log]);
       });
+      console.log('data',data);
       return data;
   }
   //
