@@ -35,17 +35,17 @@ export class WarningComponent implements OnInit {
       this.socket.on('event', function(data){ console.log('event'); });
       this.socket.on('disconnect', function(){ console.log('disconnect'); });
 
-      this.socket.on('save', (doenca,b) =>{ this.result_s = b; this.getScoreAll(doenca); });
+      this.socket.on('save', (doenca,b, log) =>{ console.log('socket.on(save)',log); this.result_s = b; this.getScoreAll(doenca); });
       this.socket.on('getDiseases', (a) =>{ console.log('getDiseasesAll',a.length,a); this.returnDiseasesAll(a);  });
       this.socket.on('getScores', (disease, scores) =>{
-                //console.log('getScores',scores,disease);
-              if(scores.length > 2)  {
-                this.full(disease,scores);
-                this.list = scores;
-                document.getElementById('timeline'+disease).style.display = "block";
-              }else{
-                document.getElementById('timeline'+disease).style.display = "none";
-              }
+          console.log('getScores',scores,disease);
+          if(scores.length > 2)  {
+            this.full(disease,scores);
+            this.list = scores;
+            document.getElementById('timeline'+disease).style.display = "block";
+          }else{
+            document.getElementById('timeline'+disease).style.display = "none";
+          }
       });
       this.socket.on('exam', (a) =>{ console.log('exam',a); this.list = a; });
 
@@ -101,11 +101,12 @@ export class WarningComponent implements OnInit {
   }
 
   public filter(disease:any,experiments:any):any{
-      let data = [['Data','Variação : '+disease]];
+      let data = [['Data','Variação : '+disease,'Perda']];
       experiments.forEach(function(d) {
            let tmp = d.dataEnd.split('T')[0].split('-');
            d.data = tmp[2]+'/'+tmp[1]+'/'+tmp[0];
-           data.push([d.data,d.score.item]);
+           if(d.score.item && d.score.log)
+              data.push([d.data,d.score.item,d.score.log]);
       });
       return data;
   }
