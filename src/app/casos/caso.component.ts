@@ -67,7 +67,7 @@ export class CasoComponent implements OnInit {
         this.doenca    = doencas[Math.floor(Math.random() * 5)];
   }
   public get(){
-        this.socket.emit("getCasos");
+        //this.socket.emit("getCasos");
   }
   public add(num:number=1){
       var list = [];

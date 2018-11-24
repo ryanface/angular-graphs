@@ -75,12 +75,12 @@ export class WarningComponent implements OnInit {
       for(let i in diseases){
         if(diseases[i].doenca != '')
           if(diseases[i].casos > 2)
-            this.socket.emit("getScores",diseases[i].doenca,{'datatime':1});
+            this.socket.emit("getScores",{'doenca':diseases[i].doenca},{'datatime':1});
       }
   }
 
   public getScoreAll(disease="Sarampo"){
-      this.socket.emit("getScores",disease,{'datatime':1});
+      this.socket.emit("getScores",{'doenca':disease},{'datatime':1});
   }
   public proccessAll(disease="Sarampo"){
       this.socket.emit("send",disease);
