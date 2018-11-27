@@ -23,7 +23,17 @@ function intervalTreeGroup(tree, firstDate, lastDate, experiments) {
         }
     };
 }
-
+function fix_item(source_group,leg) {
+    return {
+        all:function () {
+            return source_group.all().filter(function(d) {
+                //d.value = (d.value) ? d.value*100 : d.value ;
+                console.log(leg,d.value)
+                return d.value != 0;
+            });
+        }
+    };
+}
 function remove_empty_bins(source_group) {
     return {
         all:function () {

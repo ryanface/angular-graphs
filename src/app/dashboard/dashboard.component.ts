@@ -6,6 +6,7 @@ declare var crossfilter: any;
 declare var lysenkoIntervalTree: any;
 declare var intervalTreeGroup: any;
 declare var remove_empty_bins: any;
+declare var fix_item: any;
 
 var configuration = require('../../configuration');
 
@@ -48,7 +49,7 @@ export class DashboardComponent implements OnInit {
       if(!this.appService.checkLogin())
         this.route.navigate(['/modelo'])
       else{
-        this.timeline     = dc.barChart("#timeline");
+        //this.timeline     = dc.barChart("#timeline");
         this.barchart     = dc.pieChart("#barchart");
         //this.barUnidades  = dc.rowChart("#barUnidades");
 
@@ -86,70 +87,90 @@ export class DashboardComponent implements OnInit {
                  d.Chikungunya = (d.doenca == 'Chikungunya') ? d.sum : 0;
                  d.Zika        = (d.doenca == 'Zika vírus')  ? d.sum : 0;
                  d.Sifilis     = (d.doenca == 'Sífilis')     ? d.sum : 0;
+
+                 d.log          = (d.score != undefined )     ? (d.score.log) ? d.score.log : 0 : 0;
+                 d.item         = (d.score != undefined )     ? d.score.item : 0;
                  experiment.push(d);
       });
       return experiment;
   }
   //
   public full(experiments:any){
+      console.log(experiments[0]);
       experiments   = this.filter(experiments);
       this.ndx      = crossfilter(experiments);
 
+      //TIMELINE ------------------------------------------------------
+          var intervalDimension  = this.ndx.dimension(function(d) {return +d.max;});
+          var filter          = intervalDimension.group().reduceSum(dc.pluck('sum'));
+          var filtered        = remove_empty_bins(filter)
 
-  //TIMELINE ------------------------------------------------------
-  this.filterAll = this.ndx.groupAll();
-  var firstDate = d3.min(experiments, function(x) { return (x != NaN) ? x['min'] :0; }),
-      lastDate  = d3.max(experiments, function(x) { return (x != NaN) ? x['max'] :0; });
-      var intervalDimension    = this.ndx.dimension(function(d) {return d.interval;});
-      var projectsPerMonthTree = this.ndx.groupAll().reduce(
-          function(v, d) {
-              //console.log('projectsPerMonthTree',d)
-              v.insert(d.interval);
-              return v;
-          },
-          function(v, d) {
-             try{
-              v.remove(d.interval);
-             }catch(e){
-             }
-              return v;
-          },
-          function() {
-              return lysenkoIntervalTree(null);
-          }
-      );
-        var filtered_projectsPerMonth = remove_empty_bins(projectsPerMonthTree)
-      console.log(filtered_projectsPerMonth)
-      var projectsPerMonthGroup = intervalTreeGroup(projectsPerMonthTree.value(), firstDate, lastDate, experiments);
-      this.timeline
-             .width(1000)
-             .height(300)
-             .y(d3.scaleLinear().domain([0,50]))
-             .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
-             .renderHorizontalGridLines(true)
-             .xUnits(d3.timeDays)
-             .ordinalColors(['red','blue'])
-             .gap(5)
-             .elasticX(true)
-             .brushOn(true)
-             .yAxisLabel("Número de Casos")
-             .xAxisLabel("Meses")
-             .renderLabel(true)
-             .dimension(intervalDimension)
-             .group(projectsPerMonthGroup)
-             .controlsUseVisibility(true);
-             this.timeline.filterHandler(function(dim, filters) {
-                   if(filters && filters.length) {
-                       if(filters.length !== 1)
-                           throw new Error('not expecting more than one range filter');
-                       var range = filters[0];
-                       dim.filterFunction(function(i) {
-                           return !(i[1] < range[0].getTime() || i[0] > range[1].getTime());
-                       })
-                   }
-                   else dim.filterAll();
-                   return filters;
-            });
+          var compositeOne = dc.compositeChart(d3.select("#timeline"));
+          compositeOne
+              .width(500)
+              .height(300)
+              .y(d3.scaleLinear().domain([0,50]))
+              .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
+              .renderHorizontalGridLines(true)
+              .xUnits(d3.timeDays)
+              .elasticX(true)
+              .brushOn(true)
+              .yAxisLabel("Número de Casos")
+              .xAxisLabel("Meses")
+              .legend(dc.legend())
+              .compose([
+                dc.barChart(compositeOne)
+                  .renderHorizontalGridLines(true)
+                  .xUnits(d3.timeDays)
+                  .ordinalColors(['blue'])
+                  .gap(1)
+                  .elasticX(true)
+                  .brushOn(true)
+                  .yAxisLabel("Número de Casos")
+                  .xAxisLabel("Meses")
+                  .renderLabel(true)
+                  .dimension(intervalDimension)
+                  .group(filtered,"Casos")
+                  .controlsUseVisibility(true)
+                /*,dc.lineChart(compositeOne)
+                    .ordinalColors(['red'])
+                    .dimension(intervalDimension)
+                    .group(filtered)*/
+              ])
+
+  //LOG ------------------------------------------------------
+      var scoreDimension  = this.ndx.dimension(function(d) {return +d.max;});
+
+      var filter          = scoreDimension.group().reduceSum(dc.pluck('item'));
+      var groupItem        = remove_empty_bins(filter,'item')
+
+      var log             = scoreDimension.group().reduceSum(dc.pluck('log'));
+      var groupLog        = remove_empty_bins(log,'log')
+
+      var compositeOne = dc.compositeChart(d3.select("#timelog"));
+          compositeOne
+          .width(600)
+          .height(300)
+          .y(d3.scaleLinear().domain([0,2]))
+          .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
+          .renderHorizontalGridLines(true)
+          .xUnits(d3.timeDays)
+          .elasticX(true)
+          .brushOn(true)
+          .yAxisLabel("Previsão")
+          .xAxisLabel("Meses")
+          .legend(dc.legend())
+          .compose([
+            dc.lineChart(compositeOne)
+                .ordinalColors(['red'])
+                .dimension(scoreDimension)
+                .group(groupLog,"Log"),
+            dc.lineChart(compositeOne)
+                .ordinalColors(['blue'])
+                .dimension(scoreDimension)
+                .group(groupItem,"item")
+          ])
+
 
   //SCORES ------------------------------------------------------
     var dateDim         = this.ndx.dimension(function(d) {return +d.max;});
@@ -165,40 +186,33 @@ export class DashboardComponent implements OnInit {
 
     var compositeTwo = dc.compositeChart(d3.select('#barMulta'));
     compositeTwo
-        .width(1000)
+        .width(600)
         .height(300)
         //.x(d3.scaleTime())
         .y(d3.scaleLinear().domain([0,50]))
         .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
         .renderHorizontalGridLines(true)
-        .xUnits(d3.timeMonths)
+        .xUnits(d3.timeDays)
         .elasticX(true)
         .brushOn(true)
         .yAxisLabel("Número de Casos")
         .xAxisLabel("Meses")
+        .legend(dc.legend())
         .compose([
           dc.lineChart(compositeTwo)
-              .width(1000)
-              .height(300)
               .ordinalColors(['red'])
               .dimension(dateDim)
               .group(filtered_Dengue,"Dengue"),
           dc.lineChart(compositeTwo)
-              .width(1000)
-              .height(300)
               .ordinalColors(['green'])
               .renderHorizontalGridLines(true)
               .dimension(dateDim)
               .group(filtered_Chikungunya,"Chikungunya"),
           dc.lineChart(compositeTwo)
-              .width(1000)
-              .height(300)
               .ordinalColors(['blue'])
               .dimension(dateDim)
               .group(filtered_Zika,"Zika"),
           dc.lineChart(compositeTwo)
-              .width(1000)
-              .height(300)
               .ordinalColors(['black'])
               .renderHorizontalGridLines(true)
               .dimension(dateDim)
@@ -210,9 +224,8 @@ export class DashboardComponent implements OnInit {
      var barchartDimension = this.ndx.dimension(function (d) {
          return d.doenca;
      });
-     var barchartGroup = barchartDimension.group().reduceSum(function (d) {
-         return +d.sum;
-     });
+     var barchartGroup    = barchartDimension.group().reduceSum(dc.pluck('sum'));
+     var filtered_bar     = remove_empty_bins(barchartGroup)
      this.barchart
          .width(400)
          .height(350)
@@ -223,7 +236,7 @@ export class DashboardComponent implements OnInit {
          .ordinalColors(['red','green','blue','black'])
          .drawPaths(true)
          .dimension(barchartDimension)
-         .group(barchartGroup)
+         .group(filtered_bar)
          .legend(dc.legend());
 
       dc.renderAll();
