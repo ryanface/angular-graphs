@@ -117,7 +117,7 @@ export class DashboardComponent implements OnInit {
               .brushOn(true)
               .yAxisLabel("Número de Casos")
               .xAxisLabel("Meses")
-              .legend(dc.legend())
+              .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
               .compose([
                 dc.barChart(compositeOne)
                   .renderHorizontalGridLines(true)
@@ -149,7 +149,7 @@ export class DashboardComponent implements OnInit {
 
       var compositeOne = dc.compositeChart(d3.select("#timelog"));
           compositeOne
-          .width(600)
+          .width(500)
           .height(300)
           .y(d3.scaleLinear().domain([0,2]))
           .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
@@ -157,18 +157,18 @@ export class DashboardComponent implements OnInit {
           .xUnits(d3.timeDays)
           .elasticX(true)
           .brushOn(true)
-          .yAxisLabel("Previsão")
+          .yAxisLabel("Precisão")
           .xAxisLabel("Meses")
-          .legend(dc.legend())
+          .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
           .compose([
             dc.lineChart(compositeOne)
                 .ordinalColors(['red'])
                 .dimension(scoreDimension)
                 .group(groupLog,"Log"),
-            dc.lineChart(compositeOne)
+            /*dc.lineChart(compositeOne)
                 .ordinalColors(['blue'])
                 .dimension(scoreDimension)
-                .group(groupItem,"item")
+                .group(groupItem,"item")*/
           ])
 
 
@@ -186,7 +186,7 @@ export class DashboardComponent implements OnInit {
 
     var compositeTwo = dc.compositeChart(d3.select('#barMulta'));
     compositeTwo
-        .width(600)
+        .width(500)
         .height(300)
         //.x(d3.scaleTime())
         .y(d3.scaleLinear().domain([0,50]))
@@ -197,7 +197,7 @@ export class DashboardComponent implements OnInit {
         .brushOn(true)
         .yAxisLabel("Número de Casos")
         .xAxisLabel("Meses")
-        .legend(dc.legend())
+        .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .compose([
           dc.lineChart(compositeTwo)
               .ordinalColors(['red'])
@@ -227,17 +227,20 @@ export class DashboardComponent implements OnInit {
      var barchartGroup    = barchartDimension.group().reduceSum(dc.pluck('sum'));
      var filtered_bar     = remove_empty_bins(barchartGroup)
      this.barchart
-         .width(400)
-         .height(350)
+         .width(500)
+         .height(300)
          .slicesCap(10)
          .innerRadius(100)
-         .externalLabels(50)
+         .externalLabels(70)
          .externalRadiusPadding(100)
-         .ordinalColors(['red','green','blue','black'])
+         .ordinalColors(['green','red','black','blue'])
          .drawPaths(true)
          .dimension(barchartDimension)
          .group(filtered_bar)
-         .legend(dc.legend());
+         //.legend(dc.legend().x(100).y(20).itemHeight(13).gap(5))
+
+   
+
 
       dc.renderAll();
   }
