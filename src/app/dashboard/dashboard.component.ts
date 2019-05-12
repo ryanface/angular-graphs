@@ -204,12 +204,12 @@ export class DashboardComponent implements OnInit {
               .dimension(dateDim)
               .group(filtered_Dengue,"Dengue"),
           dc.lineChart(compositeTwo)
-              .ordinalColors(['green'])
+              .ordinalColors(['blue'])
               .renderHorizontalGridLines(true)
               .dimension(dateDim)
               .group(filtered_Chikungunya,"Chikungunya"),
           dc.lineChart(compositeTwo)
-              .ordinalColors(['blue'])
+              .ordinalColors(['green'])
               .dimension(dateDim)
               .group(filtered_Zika,"Zika"),
           dc.lineChart(compositeTwo)
