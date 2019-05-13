@@ -109,7 +109,7 @@ export class DashboardComponent implements OnInit {
           compositeOne
               .width(500)
               .height(300)
-              .y(d3.scaleLinear().domain([0,50]))
+              .y(d3.scaleLinear().domain([0,100]))
               .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
               .renderHorizontalGridLines(true)
               .xUnits(d3.timeDays)
