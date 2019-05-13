@@ -231,7 +231,7 @@ export class DashboardComponent implements OnInit {
          .height(300)
          .slicesCap(10)
          .innerRadius(100)
-         .externalLabels(80)
+         .externalLabels(90)
          .externalRadiusPadding(100)
          .ordinalColors(['#36602c','#469536','#6eaa5e','#dbead5'])
          .drawPaths(true)
