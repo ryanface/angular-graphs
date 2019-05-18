@@ -200,7 +200,7 @@ export class DashboardComponent implements OnInit {
         .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .compose([
           dc.lineChart(compositeTwo)
-              .ordinalColors(['#dbead5'])
+              .ordinalColors(['#8FBC8F'])
               .dimension(dateDim)
               .group(filtered_Dengue,"Dengue"),
           dc.lineChart(compositeTwo)
@@ -233,7 +233,7 @@ export class DashboardComponent implements OnInit {
          .innerRadius(100)
          .externalLabels(90)
          .externalRadiusPadding(100)
-         .ordinalColors(['#36602c','#469536','#6eaa5e','#dbead5'])
+         .ordinalColors(['#36602c','#469536','#6eaa5e','#8FBC8F'])
          .drawPaths(true)
          .dimension(barchartDimension)
          .group(filtered_bar)

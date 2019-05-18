@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class ImportComponent implements OnInit {
 
   public list:any[];
-  public term:string = "'Pag1'!A1:H10";
+  public term:string = "'Pag1'!A1:H2";
   public planilha :string = "1rYqJ3orTe09ON-A6HaOXhvhuWdpo4jfPQyYWMVtq10A";//https://docs.google.com/spreadsheets/d/1rYqJ3orTe09ON-A6HaOXhvhuWdpo4jfPQyYWMVtq10A
   public socket:any;
   public orientacao:string = 'ROWS';
