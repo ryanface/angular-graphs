@@ -1,3 +1,6 @@
+/*
+  Declaração de variáveis Globais.
+*/
 declare var require: any;
 declare var io: any;
 declare var d3: any;
@@ -8,21 +11,35 @@ declare var intervalTreeGroup: any;
 declare var remove_empty_bins: any;
 declare var fix_item: any;
 
+/*
+  Configurações locais.
+*/
 var configuration = require('../../configuration');
 
+/*
+  Componentes CORE
+*/
 import { Component, OnInit } from '@angular/core';
 import { AppService } from "../app.service";
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
+/*
+  Declaração de componentes
+*/
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   //directives: [ FilterListComponent ]
 })
+/*
+  Classe com a implementação
+*/
 export class DashboardComponent implements OnInit {
-
+  /*
+    Variáveis locais
+  */
   public socket:any;
   public list:any[];
   public ndx:any;
@@ -33,43 +50,55 @@ export class DashboardComponent implements OnInit {
   public barchart:any;
   public barUnidades:any;
   public composite:any;
-
+  /*
+    Contrutor com a declaração dos globais.
+  */
   constructor(private appService : AppService, private route: Router ) { }
-
+  /*
+    Função de inicialização do socket
+  */
   ngOnInit() {
       this.socket = io(configuration.socket,{'transports': ['websocket', 'polling']});
       this.socket.on('connect', function(){ console.log('connect');  });
       this.socket.on('event', function(data){ console.log('event'); });
       this.socket.on('disconnect', function(){ console.log('disconnect'); });
-
-
       this.socket.on('getCasos', (a) =>{ this.list = a; this.full(a); });
       this.socket.on('getScores', (a,b,c) =>{ this.list = b; this.full(b);  });
-
       if(!this.appService.checkLogin())
         this.route.navigate(['/modelo'])
       else{
-        //this.timeline     = dc.barChart("#timeline");
         this.barchart     = dc.pieChart("#barchart");
-        //this.barUnidades  = dc.rowChart("#barUnidades");
-
         this.socket.on('MongoDB', (a) =>{ if(a == 'ok') this.get();  });
       }
   }
+  /*
+    Função para desativação do socket
+  */  
   ngOnDestroy() {
       this.socket.destroy();
       this.socket = undefined;
   }
+  /*
+    Verificação de autenticação
+  */  
   checkLogin(){
      return this.appService.checkLogin();
   }
+  /*
+    Verificação de permissões
+  */  
   checkAdmin(){
      return this.appService.checkAdmin();
   }
+  /*
+    Busca os scores das predições
+  */  
   public get(){
-      //this.socket.emit("getCasos");
       this.socket.emit("getScores");
   }
+  /*
+    Filtro dos dados disponíveis
+  */  
   public filter(experiments:any):any{
       var experiment:any = [];
       console.log('experiments',experiments[0])
@@ -94,59 +123,60 @@ export class DashboardComponent implements OnInit {
       });
       return experiment;
   }
-  //
+  /*
+    Execução dos gráficos
+  */
   public full(experiments:any){
       console.log(experiments[0]);
       experiments   = this.filter(experiments);
       this.ndx      = crossfilter(experiments);
-
-      //TIMELINE ------------------------------------------------------
-          var intervalDimension  = this.ndx.dimension(function(d) {return +d.max;});
-          var filter          = intervalDimension.group().reduceSum(dc.pluck('sum'));
-          var filtered        = remove_empty_bins(filter)
-
-          var compositeOne = dc.compositeChart(d3.select("#timeline"));
-          compositeOne
-              .width(500)
-              .height(300)
-              .y(d3.scaleLinear().domain([0,100]))
-              .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
+      /*
+        TIMELINE
+      */    
+      var intervalDimension  = this.ndx.dimension(function(d) {return +d.max;});
+      var filter          = intervalDimension.group().reduceSum(dc.pluck('sum'));
+      var filtered        = remove_empty_bins(filter)
+      var compositeOne = dc.compositeChart(d3.select("#timeline"));
+      compositeOne
+          .width(500)
+          .height(300)
+          .y(d3.scaleLinear().domain([0,100]))
+          .x(d3.scaleTime().domain([new Date(2000, 0, 1), new Date(2020, 11, 31)]))
+          .renderHorizontalGridLines(true)
+          .xUnits(d3.timeDays)
+          .elasticX(true)
+          .brushOn(true)
+          .yAxisLabel("Número de Casos")
+          .xAxisLabel("Meses")
+          .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
+          .compose([
+            dc.barChart(compositeOne)
               .renderHorizontalGridLines(true)
               .xUnits(d3.timeDays)
+              .ordinalColors(['#469536'])
+              .gap(1)
               .elasticX(true)
               .brushOn(true)
               .yAxisLabel("Número de Casos")
               .xAxisLabel("Meses")
-              .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
-              .compose([
-                dc.barChart(compositeOne)
-                  .renderHorizontalGridLines(true)
-                  .xUnits(d3.timeDays)
-                  .ordinalColors(['#469536'])
-                  .gap(1)
-                  .elasticX(true)
-                  .brushOn(true)
-                  .yAxisLabel("Número de Casos")
-                  .xAxisLabel("Meses")
-                  .renderLabel(true)
-                  .dimension(intervalDimension)
-                  .group(filtered,"Casos")
-                  .controlsUseVisibility(true)
-                /*,dc.lineChart(compositeOne)
-                    .ordinalColors(['red'])
-                    .dimension(intervalDimension)
-                    .group(filtered)*/
-              ])
+              .renderLabel(true)
+              .dimension(intervalDimension)
+              .group(filtered,"Casos")
+              .controlsUseVisibility(true)
+            /*,dc.lineChart(compositeOne)
+                .ordinalColors(['red'])
+                .dimension(intervalDimension)
+                .group(filtered)*/
+          ])
 
-  //LOG ------------------------------------------------------
+      /*
+        LOG
+      */      
       var scoreDimension  = this.ndx.dimension(function(d) {return +d.max;});
-
       var filter          = scoreDimension.group().reduceSum(dc.pluck('item'));
       var groupItem        = remove_empty_bins(filter,'item')
-
       var log             = scoreDimension.group().reduceSum(dc.pluck('log'));
       var groupLog        = remove_empty_bins(log,'log')
-
       var compositeOne = dc.compositeChart(d3.select("#timelog"));
           compositeOne
           .width(500)
@@ -171,10 +201,10 @@ export class DashboardComponent implements OnInit {
                 .group(groupItem,"item")*/
           ])
 
-
-  //SCORES ------------------------------------------------------
+    /*
+      SCORES
+    */  
     var dateDim         = this.ndx.dimension(function(d) {return +d.max;});
-
     var Dengue          = dateDim.group().reduceSum(dc.pluck('Dengue'));
     var filtered_Dengue = remove_empty_bins(Dengue)
     var Chikungunya     = dateDim.group().reduceSum(dc.pluck('Chikungunya'));
@@ -183,7 +213,6 @@ export class DashboardComponent implements OnInit {
     var filtered_Zika   = remove_empty_bins(Zika)
     var Sifilis         = dateDim.group().reduceSum(dc.pluck('Sifilis'));
     var filtered_Sifilis = remove_empty_bins(Sifilis)
-
     var compositeTwo = dc.compositeChart(d3.select('#barMulta'));
     compositeTwo
         .width(500)
@@ -219,8 +248,9 @@ export class DashboardComponent implements OnInit {
               .group(filtered_Sifilis,"Sífilis")
         ])
 
-//----------------------------------------------
-    //BAR DOENCAS ------------------------------------------------------
+    /*
+      BAR DOENCAS
+    */  
      var barchartDimension = this.ndx.dimension(function (d) {
          return d.doenca;
      });
@@ -238,10 +268,6 @@ export class DashboardComponent implements OnInit {
          .dimension(barchartDimension)
          .group(filtered_bar)
          //.legend(dc.legend().x(100).y(20).itemHeight(13).gap(5))
-
-   
-
-
       dc.renderAll();
   }
 
